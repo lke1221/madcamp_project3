@@ -1,7 +1,6 @@
-
 import React from 'react';
 
-const SignUp = () => {
+const Notice = () => {
   return (
     <div
       style={{
@@ -11,9 +10,9 @@ const SignUp = () => {
         height: '90vh'
       }}
     >
-      <h1>Sign Up</h1>
+      <h1>Notice</h1>
     </div>
   );
 };
 
-export default SignUp;
+export default Notice;
