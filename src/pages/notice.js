@@ -1,3 +1,4 @@
+<<<<<<< HEAD:src/pages/signup.js
 import React, {Component} from "react";
 
 const emailRegex = RegExp(
@@ -86,10 +87,18 @@ class SignUp extends Component {
 
     return (
       <div className="wrapper"       
+=======
+import React from 'react';
+
+const Notice = () => {
+  return (
+    <div
+>>>>>>> c84c7344a46bbfbabfb35d684e235fcd8c32fd86:src/pages/notice.js
       style={{
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+<<<<<<< HEAD:src/pages/signup.js
         //height: '90vh'
       }}>
         <div className="form-wrapper">
@@ -247,5 +256,14 @@ class SignUp extends Component {
     );
   }
 }
+=======
+        height: '90vh'
+      }}
+    >
+      <h1>Notice</h1>
+    </div>
+  );
+};
+>>>>>>> c84c7344a46bbfbabfb35d684e235fcd8c32fd86:src/pages/notice.js
 
-export default SignUp;
+export default Notice;

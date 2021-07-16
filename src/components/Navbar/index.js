@@ -1,40 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Nav,
   NavLink,
   Bars,
+  Times,
   NavMenu,
   NavBtn,
   NavBtnLink
 } from './NavbarElements';
+import { Link } from 'react-router-dom'
 
-const Navbar = () => {
+function Navbar () {
+  const [click, setClick] = useState(false);
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
+
   return (
     <>
       <Nav>
         <NavLink to='/'>
-          <img src={require('../../images/logo.svg')} alt='logo' />
+          Logo
         </NavLink>
-        <Bars />
+        <div onClick={handleClick}>
+          {click? <Bars/> : <Times/>}
+        </div>
         <NavMenu>
-          <NavLink to='/about' activeStyle>
-            About
+          <NavLink to='/notice' activeStyle>
+            Notice
           </NavLink>
-          <NavLink to='/services' activeStyle>
-            Services
+          <NavLink to='/history' activeStyle>
+            History
+          </NavLink>
+          <NavLink to='/faq' activeStyle>
+            FAQ
           </NavLink>
           <NavLink to='/contact-us' activeStyle>
             Contact Us
           </NavLink>
-          <NavLink to='/sign-up' activeStyle>
-            Sign Up
+          <NavLink to='/application' activeStyle>
+            Application
           </NavLink>
-          {/* Second Nav */}
-          {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
+          <NavBtnLink to='/sign-in'>Sign In</NavBtnLink>
         </NavMenu>
-        <NavBtn>
-          <NavBtnLink to='/signin'>Sign In</NavBtnLink>
-        </NavBtn>
       </Nav>
     </>
   );
