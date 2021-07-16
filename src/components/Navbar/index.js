@@ -1,21 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Nav,
   NavLink,
   Bars,
+  Times,
   NavMenu,
   NavBtn,
   NavBtnLink
 } from './NavbarElements';
+import { Link } from 'react-router-dom'
 
-const Navbar = () => {
+function Navbar () {
+  const [click, setClick] = useState(false);
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
+
   return (
     <>
       <Nav>
         <NavLink to='/'>
           Logo
         </NavLink>
-        <Bars />
+        <div onClick={handleClick}>
+          {click? <Bars/> : <Times/>}
+        </div>
         <NavMenu>
           <NavLink to='/notice' activeStyle>
             Notice
