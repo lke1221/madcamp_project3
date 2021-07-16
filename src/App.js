@@ -8,6 +8,8 @@ import History from './pages/history';
 import FAQ from './pages/faq';
 import ContactUs from './pages/contactus';
 import Application from './pages/application';
+import SignIn from './pages/signin';
+import SignUp from './pages/signup';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
         <Route path='/faq' component={FAQ} />
         <Route path='/contact-us' component={ContactUs} />
         <Route path='/application' component={Application} />
+        <Route path='/signin' component={SignIn}/>
+        <Route path='/signup' component={SignUp}/>
       </Switch>
     </Router>
   );
