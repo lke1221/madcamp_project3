@@ -20,14 +20,17 @@ const Navbar = () => {
           <NavLink to='/about' activeStyle>
             About
           </NavLink>
-          <NavLink to='/services' activeStyle>
-            Services
+          <NavLink to='/notice' activeStyle>
+            Notice
+          </NavLink>
+          <NavLink to='/faq' activeStyle>
+            FAQ
           </NavLink>
           <NavLink to='/contact-us' activeStyle>
             Contact Us
           </NavLink>
-          <NavLink to='/sign-up' activeStyle>
-            Sign Up
+          <NavLink to='/application' activeStyle>
+            Application
           </NavLink>
           {/* Second Nav */}
           <NavBtnLink to='/sign-in'>Sign In</NavBtnLink>
