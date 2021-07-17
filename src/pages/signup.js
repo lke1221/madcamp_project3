@@ -42,7 +42,6 @@ class SignUp extends Component {
     };
   }
 
-<<<<<<< HEAD
   sendEmail = e => {
     e.preventDefault();
     console.log(this.state.email);
@@ -64,7 +63,7 @@ class SignUp extends Component {
         console.log(this.state.number);
     })
   }
-=======
+
   signup = () => {
     //const a = this.state.name;
     //this.setState({name:b})
@@ -87,7 +86,6 @@ class SignUp extends Component {
   //           console.log(response);
   //       });
   // }
->>>>>>> 8d94554acfdefec15aa79a90e71780cc80ea0d4e
 
   handleSubmit = e => {
     e.preventDefault();
