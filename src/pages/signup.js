@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import { Link } from 'react-router-dom'
 
 const emailRegex = RegExp(
-  /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+  /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+.ac.kr$/
 );
 
 const formValid = ({ formErrors, ...rest }) => {
@@ -25,6 +25,9 @@ class SignUp extends Component {
     this.state = {
       name: null,
       email: null,
+      usingemail: false,
+      number: "",
+      inputnumber: "",
       password: null,
       position: null,
       reenter_password: null,
@@ -32,20 +35,45 @@ class SignUp extends Component {
         name: "",
         email: "",
         password: "",
-        reenter_password: ""
+        reenter_password: "",
+        inputnumber: ""
       }
     };
+  }
+
+  sendEmail = e => {
+    e.preventDefault();
+    console.log(this.state.email);
+    const data = {
+        email: this.state.email           //입력한 email state값
+    }
+
+    fetch('http://localhost:3008/sendEmail',{
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+    })
+    .then(res => res.json())
+    .then(json => {
+        this.setState({
+            number: json.number,       //number이름의 state값에 생성한 인증번호를 받아왔따
+        })
+
+        console.log(this.state.number);
+    })
   }
 
   handleSubmit = e => {
     e.preventDefault();
 
-    if (formValid(this.state)) {
+    if (formValid(this.state) && (this.state.number == this.state.inputnumber)) {
+      this.setState({usingemail : true});
       console.log(`
         --SUBMITTING--
         Name: ${this.state.name}
         Email: ${this.state.email}
         Password: ${this.state.password}
+        인증번호 맞다
       `);
     } else {
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
@@ -60,12 +88,12 @@ class SignUp extends Component {
     switch (name) {
       case "name":
         formErrors.name =
-          value.length < 3 ? "minimum 3 characaters required" : "";
+          value.length < 2 ? "minimum 2 characaters required" : "";
         break;
       case "email":
         formErrors.email = emailRegex.test(value)
           ? ""
-          : "invalid email address";
+          : "학교 메일 주소를 입력해주세요";
         break;
       case "password":
         formErrors.password =
@@ -76,6 +104,9 @@ class SignUp extends Component {
         case "reenter_password":
           formErrors.reenter_password =
             value===this.state.password ? "" : "비밀번호가 다릅니다";
+        case "inputnumber":
+          formErrors.inputnumber =
+            value==this.state.number ? "" : "인증번호가 잘못되었습니다";
           break;
       default:
         break;
@@ -129,7 +160,7 @@ class SignUp extends Component {
               />
               <div>
               {formErrors.name.length > 0 && (
-                <span className="errorMessage">{formErrors.firstName}</span>
+                <span className="errorMessage">{formErrors.name}</span>
               )}
               </div>
             </div>
@@ -153,10 +184,29 @@ class SignUp extends Component {
                   width: "400px",
                   fontSize: 18}}
               />
+              <button onClick={this.sendEmail}> 전송 </button>
               <div>
               {formErrors.email.length > 0 && (
                 <span className="errorMessage">{formErrors.email}</span>
               )}
+              </div>
+            </div>
+            <div>
+              <div className="inputnumber">
+              <input
+                type="number"
+                name="inputnumber"
+                noValidate
+                onChange={this.handleChange}
+                style={{height:"40px",
+                  width: "400px",
+                  fontSize: 18}}
+              />
+              <div>
+              {formErrors.inputnumber.length > 0 && (
+                <span className="errorMessage">{formErrors.inputnumber}</span>
+              )}
+              </div>
               </div>
             </div>
             <div className="password">
@@ -250,7 +300,7 @@ class SignUp extends Component {
                   marginTop: 15,
                   marginBottom: 30,
                   color: "blue"}}>
-              <Link to="/signin">
+              <Link to="/login">
                 <small style={{fontSize: 18, textDecorationLine: 'underline'}}>Already Have an Account?</small>
               </Link>
             </div>
