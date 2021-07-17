@@ -11,6 +11,7 @@ import Application from './pages/application';
 import Login from './pages/login';
 import SignUp from './pages/signup';
 import PostView from './pages/PostView'
+import ChangePassword from './pages/changepassword'
 
 class App extends Component {
 
@@ -27,6 +28,7 @@ class App extends Component {
         <Route path='/application' component={Application} />
         <Route path='/login' component={Login}/>
         <Route path='/signup' component={SignUp}/>
+        <Route path='/changepassword' component={ChangePassword}/>
         <Route path='/postView/:no' component={PostView} />
       </Switch>
     </Router>

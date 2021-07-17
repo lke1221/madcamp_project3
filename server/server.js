@@ -2,6 +2,8 @@ const express = require('express');
 const mysql = require('mysql');
 const nodemailer = require('nodemailer'); 
 const cors = require('cors');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 const app = express();
 var bodyParser = require('body-parser');
@@ -74,18 +76,23 @@ app.post('/register', (req, res) => {
     const name = req.body.name;
     const position = req.body.position;
 
-    console.log(email + " / " + password + " / " + name + " / " + position);
+    bcrypt.hash(password, saltRounds, (err, hash) => {
+        if(err){
+            console.log(err);
+        }
 
-    db.query(`INSERT INTO user_info (email, password, name, position) VALUES (?,?,?,?)`,
-    [email, password, name, position],
-    (err, result) => {
-        if(err) console.log(err);
-        console.log(result);
+        db.query(`INSERT INTO user_info (email, password, name, position) VALUES (?,?,?,?)`,
+        [email, hash, name, position],
+        (err, result) => {
+            if(err) console.log(err);
+            console.log(result);
+        });
     });
 })
 
 app.post('/login', (req, res) => {
     const email = req.body.email;
+    const password = req.body.password;
 
     console.log(email)
 
@@ -94,14 +101,13 @@ app.post('/login', (req, res) => {
         //console.log(result);
 
         if(result.length > 0){
-            if(result[0].password == req.body.password){
-                //console.log(result);
-                res.send(result);
-            }
-            else{
-                //console.log("Wrong password!")
-                res.send({message: "Wrong password!"});
-            }
+            bcrypt.compare(password, result[0].password, (error, response) => {
+                if(response){
+                    res.send(result);
+                } else {
+                    res.send({message: "Wrong password!"});
+                }
+            });
         } else {
             //console.log("User doesn't exist!")
             res.send({message: "User doesn't exist!"});
