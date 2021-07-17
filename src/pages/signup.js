@@ -30,8 +30,9 @@ class SignUp extends Component {
       number: "",
       inputnumber: "",
       password: null,
-      position: null,
+      position: "admin",
       reenter_password: null,
+      message:"",
       formErrors: {
         name: "",
         email: "",
@@ -69,15 +70,25 @@ class SignUp extends Component {
     //this.setState({name:b})
 
     //console.log(this.state.email + " / " + this.state.password + " / " + this.state.name + " / " + this.state.position);
-
-    axios.post('http://localhost:3008/register', {
-            email: this.state.email,
-            password: this.state.password,
-            name: this.state.name,
-            position: this.state.position
+    if(this.state.formErrors.name=="" && this.state.formErrors.email=="" && this.state.formErrors.password=="" &&
+      this.state.formErrors.reenter_password=="" && this.state.formErrors.inputnumber=="" && this.state.inputnumber!=""){
+        axios.post('http://localhost:3008/register', {
+          email: this.state.email,
+          password: this.state.password,
+          name: this.state.name,
+          position: this.state.position
         }).then((response)=>{
-            console.log(response);
+          if(response.data.message) {
+            this.setState({message: response.data.message});
+          } else {
+            const {history} = this.props;
+            history.push('/');
+          }
         });
+      }
+      else{
+        console.log("can't signup");
+      }
   };
 
   //e라는 코드를 입력했을 때
@@ -208,10 +219,13 @@ class SignUp extends Component {
                   width: "400px",
                   fontSize: 18}}
               />
-              <button onClick={this.sendEmail}> 전송 </button>
+              <button onClick={this.sendEmail} style={{marginLeft:15,
+                                                fontSize:20,
+                                                backgroundColor: "green",
+                                                color: "white"}}> 인증 </button>
               <div>
               {formErrors.email.length > 0 && (
-                <span className="errorMessage">{formErrors.email}</span>
+                <span className="errorMessage" style={{marginTop: 10}}>{formErrors.email}</span>
               )}
               </div>
             </div>
@@ -313,14 +327,12 @@ class SignUp extends Component {
             </div>
             <div className="createAccount"
               style={{marginTop: 20}}>
-              <Link to='/home'>
                 <button type="submit" onClick={this.signup} style={{height:"50px", 
                                       width:"200px",
                                       marginTop: 30,
                                       fontSize: 20,
                                       backgroundColor: "green",
                                       color: "white"}}>Create Account</button>
-              </Link>
             </div>
             <div style={{//height:"40px", 
                   marginTop: 15,
