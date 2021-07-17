@@ -40,8 +40,8 @@ function Navbar () {
           <NavLink to='/application' activeStyle>
             Application
           </NavLink>
-          <NavBtnLink to='/signin' activeStyle>
-            Sign In
+          <NavBtnLink to='/login' activeStyle>
+            Login
           </NavBtnLink>
         </NavMenu>
       </Nav>

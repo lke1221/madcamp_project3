@@ -2,32 +2,19 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
 
-function SignIn() {
+function Login() {
     // input data 의 변화가 있을 때마다 value 값을 변경해서 useState 해준다
     const [inputId, setInputId] = useState('')
     const [inputPw, setInputPw] = useState('')
     
-    const handleInputId = (e) => {
-        setInputId(e.target.value)
-    }
-
-    const handleInputPw = (e) => {
-        setInputPw(e.target.value)
-    }
-
-    // login 버튼 클릭 이벤트
-    const onClickLogin = () => {
-        console.log('click login')
-    }
-
-    // 페이지 렌더링 후 가장 처음 호출되는 함수
-    useEffect(() => {
-        axios.get('/user_inform/login')
-        .then(res => console.log(res))
-        .catch()
-    },
-    // 페이지 호출 후 처음 한번만 호출될 수 있도록 [] 추가
-    [])
+    const login = () => {
+        axios.post('http://localhost:3008/login', {
+            username: inputId,
+            password: inputPw,
+        }).then((response)=>{
+            console.log(response);
+        });
+    };
 
     return(
         <div style={{
@@ -57,7 +44,7 @@ function SignIn() {
                 color: "#20232a",
                 fontSize: 20,
                 fontWeight: "bold"}}>ID : </label>
-                <input type='text' name='input_id' value={inputId} onChange={handleInputId} style={{height:"40px",
+                <input type='text' name='input_id' onChange={(e)=>{setInputId(e.target.value);}} style={{height:"40px",
                   width: "400px",
                   fontSize: 18,
                   marginBottom: 40}}/>
@@ -69,13 +56,13 @@ function SignIn() {
                 color: "#20232a",
                 fontSize: 20,
                 fontWeight: "bold"}}>PW : </label>
-                <input type='password' name='input_pw' value={inputPw} onChange={handleInputPw} style={{height:"40px",
+                <input type='password' name='input_pw' onChange={(e)=>{setInputPw(e.target.value);}} style={{height:"40px",
                   width: "400px",
                   fontSize: 18,
                   marginBottom: 40}}/>
             </div>
             <div>
-                <button type='button' onClick={onClickLogin} style={{height:"40px", 
+                <button type='button' onClick={login} style={{height:"40px", 
                                                                 width:"180px",
                                                                 marginTop: 20,
                                                                 marginBottom:20,
@@ -92,24 +79,10 @@ function SignIn() {
               </Link>
             </div>
         </div>
+    
     )
 
 
 }
 
-// const SignIn = () => {
-//   return (
-//     <div
-//       style={{
-//         display: 'flex',
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//         height: '90vh'
-//       }}
-//     >
-//       <h1>Sign In</h1>
-//     </div>
-//   );
-// };
-
-export default SignIn;
+export default Login;
