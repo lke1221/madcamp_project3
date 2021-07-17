@@ -33,7 +33,7 @@ app.post('/sendEmail', async function (req, res) {
         , requireTLS: true
         , auth: {
             user: 'lke001221@gmail.com'
-            , pass: 'coavldjs10129!'
+            , pass: ''
         }
     });
 
@@ -79,7 +79,7 @@ app.post('/register', (req, res) => {
     db.query(`INSERT INTO user_info (email, password, name, position) VALUES (?,?,?,?)`,
     [email, password, name, position],
     (err, result) => {
-        if(err) console.log(err);
+        if(err) {console.log(err); res.send({message: "Wrong register!"});}
         console.log(result);
     });
 })
