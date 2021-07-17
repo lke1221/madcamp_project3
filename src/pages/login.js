@@ -2,16 +2,27 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
 
-function Login() {
-    const [inputEmail, setInputEmail] = useState('')
-    const [inputPw, setInputPw] = useState('')
+function Login({history}) {
+    const [inputEmail, setInputEmail] = useState('');
+    const [inputPw, setInputPw] = useState('');
+    var user_name='';
+    var user_position='';
+    const [message, setMessage] = useState('');
     
     const login = () => {
         axios.post('http://localhost:3008/login', {
             email: inputEmail,
             password: inputPw,
         }).then((response)=>{
-            console.log(response);
+            if(response.data.message) {
+                setMessage(response.data.message);
+                setloginState('/login');
+            } else {
+                user_name = response.data.name;
+                user_position = response.data.position;
+                setloginState('/home');
+                history.push('/');
+            }
         });
     };
 
@@ -59,6 +70,11 @@ function Login() {
                   width: "400px",
                   fontSize: 18,
                   marginBottom: 40}}/>
+            </div>
+            <div>
+              {message.length > 0 && (
+                <span className="errorMessage">{message}</span>
+              )}
             </div>
             <div>
                 <button type='button' onClick={login} style={{height:"40px", 

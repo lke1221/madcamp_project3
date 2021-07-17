@@ -153,7 +153,7 @@ class SignUp extends Component {
               />
               <div>
               {formErrors.name.length > 0 && (
-                <span className="errorMessage">{formErrors.firstName}</span>
+                <span className="errorMessage">{formErrors.name}</span>
               )}
               </div>
             </div>

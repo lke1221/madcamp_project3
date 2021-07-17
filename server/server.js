@@ -41,20 +41,20 @@ app.post('/login', (req, res) => {
 
     db.query(`SELECT * FROM user_info WHERE email = ?`, email, (err, result) => {
         if(err) console.log(err);
-        console.log(result);
+        //console.log(result);
 
         if(result.length > 0){
             if(result[0].password == req.body.password){
-                console.log(result);
-                //res.send(result);
+                //console.log(result);
+                res.send(result);
             }
             else{
-                console.log("Wrong password!")
-                //res.send({message: "Wrong password!"});
+                //console.log("Wrong password!")
+                res.send({message: "Wrong password!"});
             }
         } else {
-            console.log("User doesn't exist!")
-            //res.send({message: "User doesn't exist!"});
+            //console.log("User doesn't exist!")
+            res.send({message: "User doesn't exist!"});
         }
     });
 });
