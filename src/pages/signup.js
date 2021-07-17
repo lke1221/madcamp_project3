@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import { Link } from 'react-router-dom'
+import axios from 'axios';
 
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+.ac.kr$/
@@ -41,6 +42,7 @@ class SignUp extends Component {
     };
   }
 
+<<<<<<< HEAD
   sendEmail = e => {
     e.preventDefault();
     console.log(this.state.email);
@@ -62,6 +64,30 @@ class SignUp extends Component {
         console.log(this.state.number);
     })
   }
+=======
+  signup = () => {
+    //const a = this.state.name;
+    //this.setState({name:b})
+
+    //console.log(this.state.email + " / " + this.state.password + " / " + this.state.name + " / " + this.state.position);
+
+    axios.post('http://localhost:3008/register', {
+            email: this.state.email,
+            password: this.state.password,
+            name: this.state.name,
+            position: this.state.position
+        }).then((response)=>{
+            console.log(response);
+        });
+  };
+
+  //e라는 코드를 입력했을 때
+  // email_verif = e => {
+  //   axios.post('http://localhost:3008/register', { e }).then((response)=>{
+  //           console.log(response);
+  //       });
+  // }
+>>>>>>> 8d94554acfdefec15aa79a90e71780cc80ea0d4e
 
   handleSubmit = e => {
     e.preventDefault();
@@ -289,12 +315,14 @@ class SignUp extends Component {
             </div>
             <div className="createAccount"
               style={{marginTop: 20}}>
-              <button type="submit" style={{height:"50px", 
+              <Link to='/home'>
+                <button type="submit" onClick={this.signup} style={{height:"50px", 
                                       width:"200px",
                                       marginTop: 30,
                                       fontSize: 20,
                                       backgroundColor: "green",
                                       color: "white"}}>Create Account</button>
+              </Link>
             </div>
             <div style={{//height:"40px", 
                   marginTop: 15,

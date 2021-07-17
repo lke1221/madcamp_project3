@@ -3,13 +3,12 @@ import axios from 'axios';
 import { Link } from 'react-router-dom'
 
 function Login() {
-    // input data 의 변화가 있을 때마다 value 값을 변경해서 useState 해준다
-    const [inputId, setInputId] = useState('')
+    const [inputEmail, setInputEmail] = useState('')
     const [inputPw, setInputPw] = useState('')
     
     const login = () => {
         axios.post('http://localhost:3008/login', {
-            username: inputId,
+            email: inputEmail,
             password: inputPw,
         }).then((response)=>{
             console.log(response);
@@ -44,7 +43,7 @@ function Login() {
                 color: "#20232a",
                 fontSize: 20,
                 fontWeight: "bold"}}>ID : </label>
-                <input type='text' name='input_id' onChange={(e)=>{setInputId(e.target.value);}} style={{height:"40px",
+                <input type='text' name='input_id' onChange={(e)=>{setInputEmail(e.target.value);}} style={{height:"40px",
                   width: "400px",
                   fontSize: 18,
                   marginBottom: 40}}/>
