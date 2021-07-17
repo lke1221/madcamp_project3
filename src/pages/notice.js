@@ -1,4 +1,5 @@
 import React from 'react';
+import PostList from './PostList';
 
 const Notice = () => {
   return (
@@ -7,10 +8,16 @@ const Notice = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '90vh'
+        flexDirection: 'column',
+        paddingTop: 80,
+        //paddingLeft: 400,
+        //paddingRight: 400
       }}
     >
-      <h1>Notice</h1>
+      <div style={{width: 900}}>
+        <h1 style={{marginBottom: 50, fontSize: 30}}>Notice</h1>
+        <PostList />
+      </div>
     </div>
   );
 };
