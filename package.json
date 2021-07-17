@@ -6,13 +6,12 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
-<<<<<<< HEAD
-    "immer": "^8.0.1",
-=======
     "axios": "^0.21.1",
     "express": "^4.17.1",
+    "http-proxy-middleware": "^0.19.1",
+    "immer": "^8.0.1",
     "mysql": "^2.18.1",
->>>>>>> 1732626cda6791437814dbca721ced0495646263
+    "nodemailer": "^6.6.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
@@ -22,7 +21,9 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "npm-run-all --parallel start:**",
+    "start:clinet": "react-scripts start",
+    "start:server": "node ./back/app.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -44,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
   }
 }

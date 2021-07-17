@@ -10,6 +10,7 @@ import ContactUs from './pages/contactus';
 import Application from './pages/application';
 import SignIn from './pages/signin';
 import SignUp from './pages/signup';
+import PostView from './pages/PostView'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path='/application' component={Application} />
         <Route path='/signin' component={SignIn}/>
         <Route path='/signup' component={SignUp}/>
+        <Route path='/postView/:no' component={PostView} />
       </Switch>
     </Router>
   );

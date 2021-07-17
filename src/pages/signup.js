@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import { Link } from 'react-router-dom'
 
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
@@ -69,10 +70,12 @@ class SignUp extends Component {
       case "password":
         formErrors.password =
           value.length < 6 ? "minimum 6 characaters required" : "";
+        formErrors.reenter_password=
+          value===this.state.reenter_password ? "" : "비밀번호가 다릅니다"
         break;
         case "reenter_password":
           formErrors.reenter_password =
-            value===this.state.password ? "" : "wrong password";
+            value===this.state.password ? "" : "비밀번호가 다릅니다";
           break;
       default:
         break;
@@ -124,9 +127,11 @@ class SignUp extends Component {
                   width: "400px",
                   fontSize: 18}}
               />
+              <div>
               {formErrors.name.length > 0 && (
                 <span className="errorMessage">{formErrors.firstName}</span>
               )}
+              </div>
             </div>
             <div className="email">
               <div style={{
@@ -148,9 +153,11 @@ class SignUp extends Component {
                   width: "400px",
                   fontSize: 18}}
               />
+              <div>
               {formErrors.email.length > 0 && (
                 <span className="errorMessage">{formErrors.email}</span>
               )}
+              </div>
             </div>
             <div className="password">
               <div style={{
@@ -172,9 +179,11 @@ class SignUp extends Component {
                   width: "400px",
                   fontSize: 18}}
               />
+              <div>
               {formErrors.password.length > 0 && (
                 <span className="errorMessage">{formErrors.password}</span>
               )}
+              </div>
             </div>
             <div className="reenter_password">
               <div style={{
@@ -196,9 +205,11 @@ class SignUp extends Component {
                   width: "400px",
                   fontSize: 18}}
               />
+              <div>
               {formErrors.reenter_password.length > 0 && (
                 <span className="errorMessage">{formErrors.reenter_password}</span>
               )}
+              </div>
             </div>
             <div className="position">
               <div style={{
@@ -239,7 +250,9 @@ class SignUp extends Component {
                   marginTop: 15,
                   marginBottom: 30,
                   color: "blue"}}>
-              <small style={{fontSize: 18, textDecorationLine: 'underline'}}>Already Have an Account?</small>
+              <Link to="/signin">
+                <small style={{fontSize: 18, textDecorationLine: 'underline'}}>Already Have an Account?</small>
+              </Link>
             </div>
           </form>
         </div>
