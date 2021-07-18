@@ -10,51 +10,6 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use(cors());
-
-app.post('/sendEmail', async function (req, res) {
-
-
-    const user_email = req.body.email;    //받아온거
-
-    console.log(user_email);
-
-    let number = Math.floor(Math.random() * 1000000)+100000; // ★★난수 발생 ★★★★★
-    if(number>1000000){                                      // ★★
-       number = number - 100000;                             // ★★
-    }
-
-    console.log(number);
-
-    // 메일발송 함수
-
-    let transporter = nodemailer.createTransport({
-        service: 'gmail'
-        , prot: 587
-        , host: 'smtp.gmlail.com'
-        , secure: false
-        , requireTLS: true
-        , auth: {
-            user: 'lke001221@gmail.com'
-            , pass: ''
-        }
-    });
-
-    let info = await transporter.sendMail({
-        from: 'lke001221@gmail.com',
-        to: user_email,         //받아온 이메일 에게
-        subject: '인증번호입니다!',
-        text: String( number ),        //이 부분은 string값만 보낼수 있다길래
-      });                              // 강제로 변경 해줬따
-
-
-      let checkemail = await new Object();
-        checkemail.number = number;        // checkemail 객체를 따로 만들고
-
-     await res.send(checkemail);           // 클라이언트에게 보내기
-
-
-})
-
 app.use(express.json());
 app.use(function(req, res, next){
     res.header("Access-Control-Allow-Origin", "*");
@@ -67,7 +22,8 @@ const db = mysql.createConnection({
     port: '3306',
     host: 'localhost',
     password: 'password',
-    database: 'myDb'
+    database: 'myDb',
+    dateStrings:'date'
 });
 
 app.post('/register', (req, res) => {
@@ -93,6 +49,50 @@ app.post('/register', (req, res) => {
     });
 });
 
+app.post('/sendEmail', async function (req, res) {
+
+
+    const user_email = req.body.email;    //받아온거
+
+    console.log(user_email);
+
+    let number = Math.floor(Math.random() * 1000000)+100000; // ★★난수 발생 ★★★★★
+    if(number>1000000){                                      // ★★
+       number = number - 100000;                             // ★★
+    }
+
+    console.log(number);
+
+    // 메일발송 함수
+
+    let transporter = nodemailer.createTransport({
+        service: 'gmail'
+        , prot: 587
+        , host: 'smtp.gmlail.com'
+        , secure: false
+        , requireTLS: true
+        , auth: {
+            user: 'leun3598@gmail.com'
+            , pass: 'ahfzoa3!'
+        }
+    });
+
+    let info = await transporter.sendMail({
+        from: 'leun3598@gmail.com',
+        to: user_email,         //받아온 이메일 에게
+        subject: '인증번호입니다!',
+        text: String( number ),        //이 부분은 string값만 보낼수 있다길래
+      });                              // 강제로 변경 해줬따
+
+
+      let checkemail = await new Object();
+        checkemail.number = number;        // checkemail 객체를 따로 만들고
+
+     await res.send(checkemail);           // 클라이언트에게 보내기
+
+
+})
+
 app.post('/login', (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
@@ -116,6 +116,33 @@ app.post('/login', (req, res) => {
             res.send({message: "User doesn't exist!"});
         }
     });
+});
+
+app.get('/getNotice', (req, res) => {
+    db.query('SELECT * FROM notice', (err, result) => {
+        if(err) console.log(err);
+        //console.log(JSON.stringify(result));
+        res.send(JSON.stringify(result));
+    });
+});
+
+app.post('/getNoticeOne', (req, res) => {
+    db.query('SELECT * FROM notice WHERE no = ?', req.body.no, (err, result) => {
+        if(err) console.log(err);        
+        res.send(result);
+    });
+});
+
+app.post('/sendNotice', (req, res) => {
+    console.log(req.body);
+    db.query(`INSERT INTO notice (title, date, content, hit, name) VALUES (?,?,?,?,?)`,
+        [req.body.title, req.body.date, req.body.content, req.body.hit, req.body.name],
+        (err, result) => {
+            if(err){
+                console.log(err);
+            }
+            console.log(result);
+        });
 });
 
 app.listen(3008, () => console.log('Node.js Server is running on port 3008...'));

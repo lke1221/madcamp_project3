@@ -1,3 +1,4 @@
+import axios from 'axios';
 const postList = [
     {
       "no": 1,

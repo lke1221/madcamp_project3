@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PostList from './PostList';
+import axios from 'axios';
 
 const Notice = () => {
+
+  // useEffect(()=>{
+  //   //get Notice data
+  //   axios.get('http://localhost:3008/getNotice').then((response)=>{
+  //       console.log(response.data);
+  //       response.data.forEach(e => {
+  //         console.log(e.no);
+  //         console.log(e.title);
+  //         console.log(e.date);
+  //         console.log(e.content);
+  //         console.log(e.hit);
+  //         console.log(e.name);
+  //       });
+  //   });
+  // })
+
   return (
     <div
       style={{

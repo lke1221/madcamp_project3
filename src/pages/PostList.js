@@ -4,12 +4,26 @@ import CommonTable from '../components/table/CommonTable';
 import CommonTableColumn from '../components/table/CommonTableColumn';
 import CommonTableRow from '../components/table/CommonTableRow';
 import { postList } from './postData';
+import axios from 'axios';
 
 const PostList = props => {
   const [ dataList, setDataList ] = useState([]);
 
   useEffect(() => {
-    setDataList(postList);
+    axios.get('http://localhost:3008/getNotice').then((response)=>{
+      //console.log(response.data);
+      // response.data.forEach(e => {
+      //   console.log(e.no);
+      //   console.log(e.title);
+      //   console.log(e.date);
+      //   console.log(e.content);
+      //   console.log(e.hit);
+      //   console.log(e.name);
+      // });
+      setDataList(response.data);
+  });
+
+    
   }, [ ])
 
   return (
@@ -23,8 +37,8 @@ const PostList = props => {
                 <CommonTableColumn>
                   <Link to={`/postView/${item.no}`}>{ item.title }</Link>
                 </CommonTableColumn>
-                <CommonTableColumn>{ item.createDate }</CommonTableColumn>
-                <CommonTableColumn>{ item.readCount }</CommonTableColumn>
+                <CommonTableColumn>{ item.date }</CommonTableColumn>
+                <CommonTableColumn>{ item.hit }</CommonTableColumn>
               </CommonTableRow>
             )
           }) : ''

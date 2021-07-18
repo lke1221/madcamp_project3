@@ -32,7 +32,6 @@ class SignUp extends Component {
       password: null,
       position: "admin",
       reenter_password: null,
-      message:"",
       formErrors: {
         name: "",
         email: "",
@@ -65,7 +64,7 @@ class SignUp extends Component {
     })
   }
 
-  signup = () => {
+  /*signup = () => {
     //const a = this.state.name;
     //this.setState({name:b})
 
@@ -78,20 +77,13 @@ class SignUp extends Component {
           name: this.state.name,
           position: this.state.position
         }).then((response)=>{
-          if(response.data.message != null) {
-            console.log("there");
-            this.setState({message: response.data.message});
-          } else {
-            console.log("here");
-            const {history} = this.props;
-            history.push('/');
-          }
+            console.log(response.data.message);
         });
       }
       else{
         console.log("can't signup");
       }
-  };
+  };*/
 
   //e라는 코드를 입력했을 때
   // email_verif = e => {
@@ -105,6 +97,14 @@ class SignUp extends Component {
 
     if (formValid(this.state) && (this.state.number == this.state.inputnumber)) {
       this.setState({usingemail : true});
+      axios.post('http://localhost:3008/register', {
+        email: this.state.email,
+        password: this.state.password,
+        name: this.state.name,
+        position: this.state.position
+      }).then((response)=>{
+          console.log(response.data.message);
+      });
       console.log(`
         --SUBMITTING--
         Name: ${this.state.name}
@@ -112,6 +112,8 @@ class SignUp extends Component {
         Password: ${this.state.password}
         인증번호 맞다
       `);
+      const {history} = this.props;
+      history.push('/');
     } else {
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
     }
@@ -141,6 +143,7 @@ class SignUp extends Component {
         case "reenter_password":
           formErrors.reenter_password =
             value===this.state.password ? "" : "비밀번호가 다릅니다";
+          break;
         case "inputnumber":
           formErrors.inputnumber =
             value==this.state.number ? "" : "인증번호가 잘못되었습니다";
@@ -219,7 +222,8 @@ class SignUp extends Component {
                 onChange={this.handleChange}
                 style={{height:"40px",
                   width: "400px",
-                  fontSize: 18}}
+                  fontSize: 18,
+                  marginBottom: 10}}
               />
               <button onClick={this.sendEmail} style={{marginLeft:15,
                                                 fontSize:20,
@@ -227,15 +231,16 @@ class SignUp extends Component {
                                                 color: "white"}}> 인증 </button>
               <div>
               {formErrors.email.length > 0 && (
-                <span className="errorMessage" style={{marginTop: 10}}>{formErrors.email}</span>
+                <span className="errorMessage">{formErrors.email}</span>
               )}
               </div>
             </div>
             <div>
               <div className="inputnumber">
               <input
-                type="number"
+                type="text"
                 name="inputnumber"
+                placeholder="인증번호 6자리"
                 noValidate
                 onChange={this.handleChange}
                 style={{height:"40px",
@@ -329,7 +334,7 @@ class SignUp extends Component {
             </div>
             <div className="createAccount"
               style={{marginTop: 20}}>
-                <button type="submit" onClick={this.signup} style={{height:"50px", 
+                <button type="submit" /*onClick={this.signup}*/ style={{height:"50px", 
                                       width:"200px",
                                       marginTop: 30,
                                       fontSize: 20,
