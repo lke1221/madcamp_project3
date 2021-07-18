@@ -13,6 +13,7 @@
     "cors": "^2.8.5",
     "draft-js": "^0.11.7",
     "express": "^4.17.1",
+    "html-react-parser": "^1.2.7",
     "http-proxy-middleware": "^0.19.1",
     "immer": "^8.0.1",
     "moment": "^2.29.1",
