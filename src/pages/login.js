@@ -85,10 +85,18 @@ function Login({history}) {
             </div>
             <div style={{//height:"40px", 
                   marginTop: 15,
-                  marginBottom: 30,
+                  marginBottom: 15,
                   color: "blue"}}>
               <Link to="/signup">
                 <small style={{fontSize: 18, textDecorationLine: 'underline'}}>New to madcamp? Sign Up</small>
+              </Link>
+            </div>
+            <div style={{//height:"40px", 
+                  marginTop: 10,
+                  marginBottom: 30,
+                  color: "blue"}}>
+              <Link to="/changepassword">
+                <small style={{fontSize: 18, textDecorationLine: 'underline'}}>Can't remember your password? Change Password</small>
               </Link>
             </div>
         </div>
