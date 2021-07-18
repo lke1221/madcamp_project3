@@ -19,10 +19,7 @@ function Login({history}) {
     // }
     
     const login = () => {
-      window.sessionStorage.setItem('email', user_email);
-      window.sessionStorage.setItem('name', user_name);
-      window.sessionStorage.setItem('position', user_position)
-        /*axios.post('http://localhost:3008/login', {
+        axios.post('http://localhost:3008/login', {
             email: inputEmail,
             password: inputPw,
         }).then((response)=>{
@@ -39,7 +36,7 @@ function Login({history}) {
                 window.sessionStorage.setItem('position', user_position)
                 //onLogin();
             }
-        });*/
+        });
     };
 
     return(
