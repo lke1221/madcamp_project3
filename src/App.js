@@ -16,8 +16,35 @@ import NewNotice from './pages/newnotice'
 import { FooterContainer } from './containers/footer'
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      logged: false,
+      onLogin: this.onLogin,
+      onLogout: this.onLogout
+    }
+  }
+
+  onLogin = () => {
+    this.setState({
+      logged: true
+    });
+  }
+
+  onLogout = () => {
+    this.setState({
+      logged: false
+    });
+  }
+
+  componenetDidMount() {
+    const email = window.sessionStorage.getItem('email');
+    if(email) this.onLogin();
+    else this.onLogout();
+  }
 
   render () {
+    const {logged, onLogout} = this.state;
   return (
     <Router>
       <Navbar />

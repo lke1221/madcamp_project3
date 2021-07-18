@@ -128,20 +128,30 @@ app.get('/getNotice', (req, res) => {
 
 app.post('/getNoticeOne', (req, res) => {
     db.query('SELECT * FROM notice WHERE no = ?', req.body.no, (err, result) => {
-        if(err) console.log(err);        
-        res.send(result);
+        if(err) console.log(err);
+        //console.log(result[0].title);        
+        //res.send(result);
+        db.query(`UPDATE notice SET hit = ? WHERE date = ?`,
+            [result[0].hit + 1, result[0].date],
+            (err1, result1) => {
+                if(err1){
+                    console.log(err1);
+                }
+                res.send(result);
+            })
+            //Update user_info SET password = ? WHERE email = ?`
     });
 });
 
 app.post('/sendNotice', (req, res) => {
-    console.log(req.body);
+    //console.log(req.body);
     db.query(`INSERT INTO notice (title, date, content, hit, name) VALUES (?,?,?,?,?)`,
         [req.body.title, req.body.date, req.body.content, req.body.hit, req.body.name],
         (err, result) => {
             if(err){
                 console.log(err);
             }
-            console.log(result);
+            //console.log(result);
         });
 });
 

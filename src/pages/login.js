@@ -1,13 +1,22 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
+import onLogin from '../App.js'
 
 function Login({history}) {
     const [inputEmail, setInputEmail] = useState('');
     const [inputPw, setInputPw] = useState('');
     var user_name='';
+    var user_email='';
     var user_position='';
     const [message, setMessage] = useState('');
+
+    // const doSignUp = () => {
+    //   window.sessionStorage.setItem('email', user_email);
+    //   window.sessionStorage.setItem('name', user_name);
+    //   window.sessionStorage.setItem('position', user_position)
+    //   this.props.onLogin();
+    // }
     
     const login = () => {
         axios.post('http://localhost:3008/login', {
@@ -18,8 +27,14 @@ function Login({history}) {
                 setMessage(response.data.message);
             } else {
                 user_name = response.data.name;
+                user_email = response.data.email;
                 user_position = response.data.position;
                 history.push('/');
+
+                window.sessionStorage.setItem('email', user_email);
+                window.sessionStorage.setItem('name', user_name);
+                window.sessionStorage.setItem('position', user_position)
+                //onLogin();
             }
         });
     };

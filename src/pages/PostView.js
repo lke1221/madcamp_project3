@@ -2,24 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { getPostByNo } from './postData';
 import './Post.css';
 import axios from 'axios';
-import moment from 'moment';
 
 const PostView = ({ history, location, match }) => {
   const [ data, setData ] = useState({});
 
   const { no } = match.params;
-
-  const sendNoticeData = () => {
-    axios.post('http://localhost:3008/sendNotice', {
-            title: "새롭게 작성한 게시글입니다.",
-            date: moment().format("YYYY-MM-DD hh:mm:ss"),
-            content: "새롭게 작성한 게시글 내용입니다.",
-            hit: 1,
-            name: "박준영"
-        }).then((response)=>{
-            console.log(response.data);
-        });
-  }
 
   useEffect(() => {
     axios.post('http://localhost:3008/getNoticeOne', {no: no}).then((response)=>{

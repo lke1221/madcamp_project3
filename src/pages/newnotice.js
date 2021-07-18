@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import './newnotice.css'
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import Axios from 'axios';
+import axios from 'axios';
+import moment from 'moment';
 
 const NewNotice = () => {
 
@@ -12,19 +13,33 @@ const NewNotice = () => {
   })
   
   const submitReview = ()=>{
-    Axios.post('http://localhost:3008/insert', {
-      title: post.title,
-      content: post.content
-    }).then(()=>{
-      alert('등록 완료!');
-    })
+    console.log(post.title);
+    axios.post('http://localhost:3008/sendNotice', {
+            title: post.title,
+            date: moment().format("YYYY-MM-DD HH:mm:ss"),
+            content: post.content,
+            hit: 0,
+            name: "이권은"
+        }).then((response)=>{
+            alert('등록 완료!');
+            console.log(response.data);
+        });
+
+    // Axios.post('http://localhost:3008/insert', {
+    //   title: post.title,
+    //   content: post.content,
+    //   name: "이권은"
+
+    // }).then(()=>{
+    //   alert('등록 완료!');
+    // })
   };
 
   const getValue = e => {
     const {name, value} = e.target;
     setPost({
       ...post,
-      [name]: value
+      title: value
     })
   };
 
@@ -58,10 +73,10 @@ const NewNotice = () => {
                 })
               }}
               onBlur={(event, editor) => {
-                console.log('Blur.', editor);
+                //console.log('Blur.', editor);
               }}
               onFocus={(event, editor) => {
-                console.log('Focus.', editor);
+                //console.log('Focus.', editor);
               }}
               />
             </div>

@@ -11,15 +11,6 @@ const PostList = props => {
 
   useEffect(() => {
     axios.get('http://localhost:3008/getNotice').then((response)=>{
-      //console.log(response.data);
-      // response.data.forEach(e => {
-      //   console.log(e.no);
-      //   console.log(e.title);
-      //   console.log(e.date);
-      //   console.log(e.content);
-      //   console.log(e.hit);
-      //   console.log(e.name);
-      // });
       setDataList(response.data);
   });
 
