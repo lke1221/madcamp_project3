@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PostList from './PostList';
+import axios from 'axios';
 import { Link } from 'react-router-dom'
 
 const Notice = ({history}) => {

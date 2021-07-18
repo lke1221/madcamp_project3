@@ -41,6 +41,17 @@ class ChangePassword extends Component {
 
   sendEmail = e => {
     e.preventDefault();
+
+    //check if email exist in DB
+    axios.post('http://localhost:3008/registerFind', {
+      email: this.state.email,
+    }).then((response)=>{
+      console.log(response.data.message);
+      this.state.formErrors.email = response.data.message.length > 0 ?  response.data.message : "";
+      //return;
+    });
+    //this.state.formErrors = '';
+
     console.log(this.state.email);
     const data = {
         email: this.state.email           //입력한 email state값
@@ -61,38 +72,26 @@ class ChangePassword extends Component {
     })
   }
 
-  signup = () => {
-    //const a = this.state.name;
-    //this.setState({name:b})
-
-    //console.log(this.state.email + " / " + this.state.password + " / " + this.state.name + " / " + this.state.position);
-
-    axios.post('http://localhost:3008/register', {
-            email: this.state.email,
-            password: this.state.password,
-        }).then((response)=>{
-            console.log(response);
-        });
-  };
-
-  //e라는 코드를 입력했을 때
-  // email_verif = e => {
-  //   axios.post('http://localhost:3008/register', { e }).then((response)=>{
-  //           console.log(response);
-  //       });
-  // }
-
   handleSubmit = e => {
     e.preventDefault();
 
     if (formValid(this.state) && (this.state.number == this.state.inputnumber)) {
       this.setState({usingemail : true});
+      axios.post('http://localhost:3008/registerUpdate', {
+        email: this.state.email,
+        password: this.state.password,
+      }).then((response)=>{
+          console.log(response.data.message);
+      });
       console.log(`
         --SUBMITTING--
+        Name: ${this.state.name}
         Email: ${this.state.email}
         Password: ${this.state.password}
         인증번호 맞다
       `);
+      const {history} = this.props;
+      history.push('/');
     } else {
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
     }
@@ -127,7 +126,7 @@ class ChangePassword extends Component {
         break;
     }
 
-    this.setState({ formErrors, [name]: value }, () => console.log(this.state));
+    this.setState({ formErrors, [name]: value }); //, () => console.log(this.state)
   };
 
   render() {
@@ -212,7 +211,7 @@ class ChangePassword extends Component {
                 color: "#20232a",
                 fontSize: 20,
                 fontWeight: "bold"}}>
-                <label htmlFor="password">New Password</label>
+                <label htmlFor="password">Password</label>
               </div>
               <input
                 className={formErrors.password.length > 0 ? "error" : null}
@@ -258,14 +257,12 @@ class ChangePassword extends Component {
             </div>
             <div className="createAccount"
               style={{marginTop: 20}}>
-              <Link to='/home'>
-                <button type="submit" onClick={this.signup} style={{height:"50px", 
+                <button type="submit" /*onClick={this.signup}*/ style={{height:"50px", 
                                       width:"200px",
                                       marginTop: 30,
                                       fontSize: 20,
                                       backgroundColor: "green",
                                       color: "white"}}>Submit</button>
-              </Link>
             </div>
             <div style={{//height:"40px", 
                   marginTop: 15,
