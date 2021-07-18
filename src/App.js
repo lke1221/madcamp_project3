@@ -44,7 +44,6 @@ class App extends Component {
   }
 
   render () {
-    const {logged, onLogout} = this.state;
   return (
     <Router>
       <Navbar />

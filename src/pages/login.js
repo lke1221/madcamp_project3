@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
-import onLogin from '../App.js'
 
 function Login({history}) {
     const [inputEmail, setInputEmail] = useState('');
@@ -10,13 +9,6 @@ function Login({history}) {
     var user_email='';
     var user_position='';
     const [message, setMessage] = useState('');
-
-    // const doSignUp = () => {
-    //   window.sessionStorage.setItem('email', user_email);
-    //   window.sessionStorage.setItem('name', user_name);
-    //   window.sessionStorage.setItem('position', user_position)
-    //   this.props.onLogin();
-    // }
     
     const login = () => {
         axios.post('http://localhost:3008/login', {
@@ -33,7 +25,8 @@ function Login({history}) {
 
                 window.sessionStorage.setItem('email', user_email);
                 window.sessionStorage.setItem('name', user_name);
-                window.sessionStorage.setItem('position', user_position)
+                window.sessionStorage.setItem('position', user_position);
+                document.location.href="/";
                 //onLogin();
             }
         });

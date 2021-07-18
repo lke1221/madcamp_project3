@@ -14,6 +14,14 @@ function Navbar () {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
+  const [logged, setLogged] = useState(false);
+
+  const logout = () => {
+    window.sessionStorage.removeItem('email');
+    window.sessionStorage.removeItem('name');
+    window.sessionStorage.removeItem('position');
+    setLogged(!logged);
+  };
 
   return (
     <>
@@ -40,9 +48,8 @@ function Navbar () {
           <NavLink to='/application' activeStyle>
             Application
           </NavLink>
-          <NavBtnLink to='/login' activeStyle>
-            Login
-          </NavBtnLink>
+            {(window.sessionStorage.getItem('name')===null)? <NavBtnLink to='/login' activeStyle>Login</NavBtnLink>:
+            <NavBtnLink to='/' onClick={logout} activeStyle>LogOut</NavBtnLink>}
         </NavMenu>
       </Nav>
     </>
