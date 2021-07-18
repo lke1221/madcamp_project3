@@ -1,24 +1,9 @@
 import React, { useEffect } from 'react';
 import PostList from './PostList';
 import axios from 'axios';
+import { Link } from 'react-router-dom'
 
-const Notice = () => {
-
-  // useEffect(()=>{
-  //   //get Notice data
-  //   axios.get('http://localhost:3008/getNotice').then((response)=>{
-  //       console.log(response.data);
-  //       response.data.forEach(e => {
-  //         console.log(e.no);
-  //         console.log(e.title);
-  //         console.log(e.date);
-  //         console.log(e.content);
-  //         console.log(e.hit);
-  //         console.log(e.name);
-  //       });
-  //   });
-  // })
-
+const Notice = ({history}) => {
   return (
     <div
       style={{
@@ -34,6 +19,10 @@ const Notice = () => {
       <div style={{width: 900}}>
         <h1 style={{marginBottom: 50, fontSize: 30}}>Notice</h1>
         <PostList />
+        <Link to="/newnotice">
+          <button className="new-notice" style={{marginTop: 20,
+                                          fontSize: 20}}>작성하기</button>
+        </Link>
       </div>
     </div>
   );

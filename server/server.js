@@ -145,4 +145,32 @@ app.post('/sendNotice', (req, res) => {
         });
 });
 
+app.post('/registerFind', (req, res) => {
+    db.query(`SELECT * FROM user_info WHERE email = ?`, req.body.email, (err, result) => {
+        if(err) console.log(err);
+        if(result.length == 0) res.send({message: "this email is not registered! sign up for madcamp!"})
+    })
+})
+
+app.post('/registerUpdate', (req, res) => {
+    const email = req.body.email;
+    const password = req.body.password;
+
+    bcrypt.hash(password, saltRounds, (err, hash) => {
+        if(err){
+            console.log(err);
+        }
+
+        db.query(`Update user_info SET password = ? WHERE email = ?`,
+        [hash, email],
+        (err, result) => {
+            if(err){
+                console.log(err);
+                res.send({message: "Wrong register!"});
+            }
+            //console.log(result);
+        });
+    });
+});
+
 app.listen(3008, () => console.log('Node.js Server is running on port 3008...'));

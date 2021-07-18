@@ -11,7 +11,7 @@ const AccordionSection = styled.div`
   align-items: center;
 
   position: relative;
-  height: 100vh;
+  height: 70vh;
   background: #fff;
 `;
 
