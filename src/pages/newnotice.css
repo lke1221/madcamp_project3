@@ -1,0 +1,27 @@
+.form-wrapper{
+    margin-top: 30px;
+    width: 100%;
+  }
+  
+  .title-input {
+    min-width: 900px;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+  
+  .submit-button {
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    padding: 20px;
+    border: none;
+    background: indianred;
+    border-radius: 5px;
+    margin-top: 40px;
+    vertical-align: middle;
+  }
+  
+  .ck.ck-editor__editable:not(.ck-editor__nested-editable) {
+    min-height: 500px;
+    min-width: 800px;
+  }
