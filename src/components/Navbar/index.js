@@ -40,9 +40,8 @@ function Navbar () {
           <NavLink to='/application' activeStyle>
             Application
           </NavLink>
-          <NavBtnLink to='/login' activeStyle>
-            Login
-          </NavBtnLink>
+            {(window.sessionStorage.getItem('name')===null)? <NavBtnLink to='/login' activeStyle>Login</NavBtnLink>:
+            <NavBtnLink to='/login' activeStyle>LogOut</NavBtnLink>}
         </NavMenu>
       </Nav>
     </>
