@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getPostByNo } from './postData';
 import './Post.css';
 import axios from 'axios';
+import ReactHtmlParser from 'html-react-parser';
 
 const PostView = ({ history, location, match }) => {
   const [ data, setData ] = useState({});
@@ -53,7 +54,7 @@ const PostView = ({ history, location, match }) => {
                 <label>내용</label>
                 <div>
                   {
-                    data.content
+                    ReactHtmlParser(data.content+"")
                   }
                 </div>
               </div>
