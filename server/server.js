@@ -32,13 +32,13 @@ app.post('/sendEmail', async function (req, res) {
         , secure: false
         , requireTLS: true
         , auth: {
-            user: 'lke001221@gmail.com'
+            user: 'leun3598@gmail.com'
             , pass: ''
         }
     });
 
     let info = await transporter.sendMail({
-        from: 'lke001221@gmail.com',
+        from: 'leun3598@gmail.com',
         to: user_email,         //받아온 이메일 에게
         subject: '인증번호입니다!',
         text: String( number ),        //이 부분은 string값만 보낼수 있다길래
