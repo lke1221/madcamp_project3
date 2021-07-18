@@ -222,7 +222,8 @@ class SignUp extends Component {
                 onChange={this.handleChange}
                 style={{height:"40px",
                   width: "400px",
-                  fontSize: 18}}
+                  fontSize: 18,
+                  marginBottom: 10}}
               />
               <button onClick={this.sendEmail} style={{marginLeft:15,
                                                 fontSize:20,
@@ -230,15 +231,16 @@ class SignUp extends Component {
                                                 color: "white"}}> 인증 </button>
               <div>
               {formErrors.email.length > 0 && (
-                <span className="errorMessage" style={{marginTop: 10}}>{formErrors.email}</span>
+                <span className="errorMessage">{formErrors.email}</span>
               )}
               </div>
             </div>
             <div>
               <div className="inputnumber">
               <input
-                type="number"
+                type="text"
                 name="inputnumber"
+                placeholder="인증번호 6자리"
                 noValidate
                 onChange={this.handleChange}
                 style={{height:"40px",
