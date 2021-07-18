@@ -5,7 +5,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import axios from 'axios';
 import moment from 'moment';
 
-const NewNotice = () => {
+const NewNotice = ({history}) => {
 
   const [post, setPost] = useState({
     title:'',
@@ -23,6 +23,7 @@ const NewNotice = () => {
         }).then((response)=>{
             alert('등록 완료!');
             console.log(response.data);
+            history.push('/notice');
         });
 
     // Axios.post('http://localhost:3008/insert', {
