@@ -78,9 +78,11 @@ class SignUp extends Component {
           name: this.state.name,
           position: this.state.position
         }).then((response)=>{
-          if(response.data.message) {
+          if(response.data.message != null) {
+            console.log("there");
             this.setState({message: response.data.message});
           } else {
+            console.log("here");
             const {history} = this.props;
             history.push('/');
           }
@@ -147,7 +149,7 @@ class SignUp extends Component {
         break;
     }
 
-    this.setState({ formErrors, [name]: value }, () => console.log(this.state));
+    this.setState({ formErrors, [name]: value }); //, () => console.log(this.state)
   };
 
   render() {
