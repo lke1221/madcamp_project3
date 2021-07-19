@@ -10,7 +10,7 @@ const PostList = props => {
   const [ dataList, setDataList ] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3008/getNotice').then((response)=>{
+    axios.get('http://172.10.18.166:80/getNotice').then((response)=>{
       setDataList(response.data);
   });
 

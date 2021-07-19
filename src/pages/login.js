@@ -19,7 +19,7 @@ function Login({history}) {
     // }
     
     const login = () => {
-        axios.post('http://localhost:3008/login', {
+        axios.post('http://172.10.18.166:80/login', {
             email: inputEmail,
             password: inputPw,
         }).then((response)=>{

@@ -10,7 +10,7 @@ const PostView = ({ history, location, match }) => {
   const { no } = match.params;
 
   useEffect(() => {
-    axios.post('http://localhost:3008/getNoticeOne', {no: no}).then((response)=>{
+    axios.post('http://172.10.18.166:80/getNoticeOne', {no: no}).then((response)=>{
             setData(response.data[0]);
         });
   }, [ ]);

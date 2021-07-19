@@ -14,7 +14,7 @@ const NewNotice = ({history}) => {
   
   const submitReview = ()=>{
     console.log(post.title);
-    axios.post('http://localhost:3008/sendNotice', {
+    axios.post('http://172.10.18.166:80/sendNotice', {
             title: post.title,
             date: moment().format("YYYY-MM-DD HH:mm:ss"),
             content: post.content,
@@ -25,15 +25,6 @@ const NewNotice = ({history}) => {
             console.log(response.data);
             history.push('/notice');
         });
-
-    // Axios.post('http://localhost:3008/insert', {
-    //   title: post.title,
-    //   content: post.content,
-    //   name: "이권은"
-
-    // }).then(()=>{
-    //   alert('등록 완료!');
-    // })
   };
 
   const getValue = e => {

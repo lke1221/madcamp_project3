@@ -43,7 +43,7 @@ class ChangePassword extends Component {
     e.preventDefault();
 
     //check if email exist in DB
-    axios.post('http://localhost:3008/registerFind', {
+    axios.post('http://172.10.18.166:80/registerFind', {
       email: this.state.email,
     }).then((response)=>{
       console.log(response.data.message);
@@ -57,7 +57,7 @@ class ChangePassword extends Component {
         email: this.state.email           //입력한 email state값
     }
 
-    fetch('http://localhost:3008/sendEmail',{
+    fetch('http://172.10.18.166:80/sendEmail',{
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -77,7 +77,7 @@ class ChangePassword extends Component {
 
     if (formValid(this.state) && (this.state.number == this.state.inputnumber)) {
       this.setState({usingemail : true});
-      axios.post('http://localhost:3008/registerUpdate', {
+      axios.post('http://172.10.18.166:80/registerUpdate', {
         email: this.state.email,
         password: this.state.password,
       }).then((response)=>{
