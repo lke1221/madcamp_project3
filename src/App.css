@@ -6,3 +6,34 @@
   margin: 0;
   padding: 0;
 }
+
+.Home1 {
+  height: "100vh";
+  width: "100%";
+  background-color: black;
+  display: "flex";
+  justify-content: "center";
+  align-items: "center";
+}
+
+.HomeLogo {
+  justify-content: "center";
+  align-items: "center";
+  height: "100vh";
+  width: "100%";
+}
+.Home2 {
+  background-color: black;
+  /* display: "flex"; */
+  justify-content: "center";
+  align-items: "center";
+  height: "10vh";
+}
+.Home_text {
+  text-align: "center";
+  font-size: 1200px;
+}
+
+.before {
+  display: "block";
+}
