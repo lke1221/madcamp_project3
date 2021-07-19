@@ -1,0 +1,13 @@
+.body {
+  text-align: center;
+}
+
+.text {
+  line-height: 150%;
+  width: 50%;
+  margin-left: 400px;
+}
+
+.text {
+  transition: transform 0.7s, opacity 1s;
+}

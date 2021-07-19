@@ -14,7 +14,7 @@ const PostView = ({ history, location, match }) => {
             setData(response.data[0]);
         });
   }, [ ]);
-
+  
   const editPost = () => {
     if(window.sessionStorage.getItem('position')=='admin'){
       history.push({

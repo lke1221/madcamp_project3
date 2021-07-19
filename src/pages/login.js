@@ -11,7 +11,10 @@ function Login({history}) {
     const [message, setMessage] = useState('');
     
     const login = () => {
-
+      /*window.sessionStorage.setItem('email', 'koreacomputer19@korea.ac.kr');
+      window.sessionStorage.setItem('name', '이권은');
+      window.sessionStorage.setItem('position', 'admin');
+      document.location.href="/";*/
         axios.post('http://172.10.18.166:80/login', {
             email: inputEmail,
             password: inputPw,
