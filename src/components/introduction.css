@@ -1,13 +1,28 @@
+* {
+  font-family: "Sora", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .body {
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .text {
-  line-height: 150%;
   width: 50%;
-  margin-left: 400px;
+  /* height: 50%; */
+  line-height: 300%;
 }
 
 .text {
   transition: transform 0.7s, opacity 1s;
+}
+.body:active {
+  border-bottom: 2px solid white;
 }
