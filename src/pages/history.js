@@ -1,16 +1,18 @@
-import React from 'react';
+import React from "react";
+import Cards2 from "../components/card2";
 
 const History = () => {
   return (
     <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '90vh'
-      }}
+      // style={{
+      //   display: "flex",
+      //   justifyContent: "center",
+      //   alignItems: "center",
+      //   height: "90vh",
+      // }}
+      id="history"
     >
-      <h1>History</h1>
+      <Cards2 />
     </div>
   );
 };

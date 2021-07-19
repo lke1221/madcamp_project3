@@ -16,6 +16,11 @@ const PostList = props => {
 
     
   }, [ ])
+
+  /*useEffect(() => {
+    setDataList(postList);
+  }, [ ])*/
+
   return (
     <>
       <CommonTable headersName={['글번호', '제목', '등록일', '조회수']}>

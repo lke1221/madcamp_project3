@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import CommonTable from '../components/table2/CommonTable';
 import CommonTableColumn from '../components/table2/CommonTableColumn';
 import CommonTableRow from '../components/table2/CommonTableRow';
-import { recruitData } from './recruitData';
+import { historyData } from './historyData';
 import axios from 'axios';
 
-const Application = () => {
+const RealHistory = () => {
   const [ dataList, setDataList ] = useState([]);
 
   useEffect(() => {
-    setDataList(recruitData);
+    setDataList(historyData);
   }, [ ])
 
   return (
@@ -22,7 +22,7 @@ const Application = () => {
       }}
     >
       <div style={{width: 900}}>
-      <h1 style={{marginBottom: 50, fontSize: 30}}>Application</h1>
+      <h1 style={{marginBottom: 50, fontSize: 30}}>History</h1>
       <CommonTable headersName={['', '']}>
         {
           dataList ? dataList.map((item, index) => {
@@ -42,4 +42,4 @@ const Application = () => {
   );
 };
 
-export default Application;
+export default RealHistory;

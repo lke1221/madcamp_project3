@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   padding: 25px 60px;
-  background: #EEEEEE;
+  background: #eeeeee;
   margin-top: 250px;
   @media (max-width: 1000px) {
     padding: 70px 30px;
@@ -10,13 +10,13 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-width: 1000px;
-    margin: 0 auto;
-    /* background: red; */
-`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  /* background: red; */
+`;
 
 export const Column = styled.div`
   display: flex;
@@ -36,19 +36,25 @@ export const Row = styled.div`
 `;
 
 export const Link = styled.a`
-  color: #7D7D7D;
+  color: #7d7d7d;
   margin-bottom: 20px;
   font-size: 18px;
   text-decoration: none;
   &:hover {
-      color: #ff9c00;
-      transition: 200ms ease-in;
+    color: #ff9c00;
+    transition: 200ms ease-in;
   }
+`;
+export const Body = styled.a`
+  color: #7d7d7d;
+  margin-bottom: 20px;
+  font-size: 18px;
+  text-decoration: none;
 `;
 
 export const Title = styled.p`
   font-size: 24px;
-  color: #7D7D7D;
+  color: #7d7d7d;
   margin-bottom: 40px;
   font-weight: bold;
 `;

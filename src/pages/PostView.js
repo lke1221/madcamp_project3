@@ -14,6 +14,10 @@ const PostView = ({ history, location, match }) => {
             setData(response.data[0]);
         });
   }, [ ]);
+
+  /*useEffect(() => {
+    setData(getPostByNo(no));
+  }, [ ]);*/
   
   const editPost = () => {
     if(window.sessionStorage.getItem('position')=='admin'){
@@ -21,6 +25,17 @@ const PostView = ({ history, location, match }) => {
         pathname: '/editnotice',
         state:{title: data.title, detail: data.content, hit: data.hit, name: data.name, no: data.no}
       })
+    }
+    else{
+      alert("권한이 없습니다.");
+    }
+  };
+
+  const deletePost = () => {
+    if(window.sessionStorage.getItem('position')=='admin'){
+      if(window.confirm("정말 삭제하시겠습니까?")){
+        console.log("삭제");
+      }
     }
     else{
       alert("권한이 없습니다.");
@@ -79,6 +94,7 @@ const PostView = ({ history, location, match }) => {
         }
         <div alignItems="center">
             <button className="edit-button" onClick={editPost}>수정</button>
+            <button className="delete-button" onClick={deletePost}>삭제</button>
             <button className="post-view-go-list-btn" onClick={() => history.goBack()}>목록으로 돌아가기</button>
         </div>
       </div>

@@ -119,7 +119,7 @@ const NewNotice = ({history}) => {
                 //console.log('Focus.', editor);
               }}
               />
-              <input type='file' onChange={fileUpload}/>
+              <input type='file'/>
             </div>
             <button className="submit-button" onClick={submitReview}>입력</button>
         </div>
