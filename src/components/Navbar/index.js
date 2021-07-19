@@ -75,14 +75,9 @@ function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/pick" className="nav-links" onClick={closeMobileMenu}>
-                Pick!
-              </Link>
-            </li>
-            <li>
               {(window.sessionStorage.getItem('name')===null)?
-              <Link to='/' className="nav-links" onClick={()=>alert("로그인 후 이용가능합니다.")}>Histroy</Link>
-              :<Link to="/history" className="nav-links" onClick={closeMobileMenu}>History</Link>}
+                <Link to='/' className="nav-links" onClick={()=>alert("로그인 후 이용가능합니다.")}>Pick!</Link>
+                :<Link to="/pick" className="nav-links" onClick={closeMobileMenu}>Pick!</Link>}
             </li>
             <li className="nav-item">
               <Link to="/faq" className="nav-links" onClick={closeMobileMenu}>

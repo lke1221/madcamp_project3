@@ -16,7 +16,7 @@ const Notice = ({history}) => {
         //paddingRight: 400
       }}
     >
-      <div style={{width: 900}}>
+      <div style={{width: 900, height: 450}}>
         <h1 style={{marginBottom: 50, fontSize: 30}}>Notice</h1>
         <PostList />
         {/*<Link to="/newnotice">*/}
