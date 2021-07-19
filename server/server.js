@@ -155,6 +155,18 @@ app.post('/sendNotice', (req, res) => {
         });
 });
 
+app.post('/editNotice', (req, res) => {
+    //console.log(req.body);
+    db.query(`INSERT INTO notice (title, date, content, hit, name) VALUES (?,?,?,?,?)`,
+        [req.body.title, req.body.date, req.body.content, req.body.hit, req.body.name],
+        (err, result) => {
+            if(err){
+                console.log(err);
+            }
+            res.send(result);
+        });
+});
+
 app.post('/registerFind', (req, res) => {
     db.query(`SELECT * FROM user_info WHERE email = ?`, req.body.email, (err, result) => {
         if(err) console.log(err);

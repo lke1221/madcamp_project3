@@ -15,6 +15,13 @@ const PostView = ({ history, location, match }) => {
         });
   }, [ ]);
 
+  const editPost = () => {
+    history.push({
+      pathname: '/editnotice',
+      state:{title: data.title, detail: data.content, hit: data.hit, name: data.name}
+    })
+  };
+
   return (
     <div
       style={{
@@ -43,6 +50,10 @@ const PostView = ({ history, location, match }) => {
                 <label>{ data.title }</label>
               </div>
               <div className="post-view-row">
+                <label>작성자</label>
+                <label>{ data.name }</label>
+              </div>
+              <div className="post-view-row">
                 <label>작성일</label>
                 <label>{ data.date }</label>
               </div>
@@ -62,6 +73,7 @@ const PostView = ({ history, location, match }) => {
           ) : '해당 게시글을 찾을 수 없습니다.'
         }
         <div alignItems="center">
+            <button className="edit-button" onClick={editPost}>수정</button>
             <button className="post-view-go-list-btn" onClick={() => history.goBack()}>목록으로 돌아가기</button>
         </div>
       </div>

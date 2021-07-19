@@ -4,8 +4,11 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import axios from 'axios';
 import moment from 'moment';
+import {useLocation} from 'react-router-dom';
 
-const NewNotice = ({history}) => {
+const EditNotice = ({history}, props) => {
+
+  const location = useLocation();
 
   const [post, setPost] = useState({
     title:'',
@@ -14,17 +17,26 @@ const NewNotice = ({history}) => {
   
   const submitReview = ()=>{
     console.log(post.title);
-    axios.post('http://172.10.18.166:80/sendNotice', {
+    axios.post('http://localhost:3008/editNotice', {
             title: post.title,
             date: moment().format("YYYY-MM-DD HH:mm:ss"),
             content: post.content,
-            hit: 0,
-            name: window.sessionStorage.getItem('name')
+            hit: location.state.hit,
+            name: location.state.name
         }).then((response)=>{
-            alert('등록 완료!');
+            alert('수정 완료!');
             console.log(response.data);
             history.push('/notice');
         });
+
+    // Axios.post('http://localhost:3008/insert', {
+    //   title: post.title,
+    //   content: post.content,
+    //   name: "이권은"
+
+    // }).then(()=>{
+    //   alert('등록 완료!');
+    // })
   };
 
   const getValue = e => {
@@ -46,12 +58,12 @@ const NewNotice = ({history}) => {
       }}
     >
         <div style={{width: 900}}>
-            <h1>New Notice</h1>
+            <h1>Edit</h1>
             <div className='form-wrapper'>
-              <input className="title-input" type='text' placeholder='제목' onChange={getValue}/>
+              <input className="title-input" type='text' placeholder='제목' onChange={getValue} value={location.state.title}/>
               <CKEditor
                 editor={ClassicEditor}
-                data="내용을 입력하세요"
+                data={location.state.detail}
                 onReady={editor => {
                 // You can store the "editor" and use when it is needed.
                 console.log('Editor is ready to use!', editor);
@@ -78,4 +90,4 @@ const NewNotice = ({history}) => {
   );
 };
 
-export default NewNotice;
+export default EditNotice;
