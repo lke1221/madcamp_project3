@@ -5,15 +5,30 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import axios from 'axios';
 import moment from 'moment';
 
+
 const NewNotice = ({history}) => {
 
   const [post, setPost] = useState({
     title:'',
     content:''
   })
+
+  // const [file, setFile] = useState();
+  // const [fileName, setFileName] = useState("")
   
   const submitReview = ()=>{
-    console.log(post.title);
+    // console.log(file);
+    // const data = new FormData();
+    // data.append('file', file)
+
+    // axios.post('http://172.10.18.166:80/sendFileToNotice', data, {
+    //   headers: {
+    //     "Content-Type": "multipart/form-data",
+    //   }
+    // }).then((response)=>{
+    //           console.log('file upload success');
+    //         });
+
     axios.post('http://172.10.18.166:80/sendNotice', {
             title: post.title,
             date: moment().format("YYYY-MM-DD HH:mm:ss"),
@@ -34,6 +49,39 @@ const NewNotice = ({history}) => {
       title: value
     })
   };
+
+  // const fileUpload = (e) => {
+  //   const file = e.target.files[0];
+  // }
+
+  // const onFileUpload = e => {
+  //   setPost({
+  //     ...post,
+  //     file: e.target.file[0]
+  //   })
+  //   //console.log(e.target.files[0])
+  // }
+
+  // const saveFile = (e) => {
+  //   console.log(e.target);
+  //   setFile(e.target.file[0]);
+  //   setFileName(e.target.file[0].name);
+  // };
+
+  // const uploadFile = async (e) => {
+  //   const formData = new FormData();
+  //   formData.append("file", file);
+  //   formData.append("fileName", fileName);
+  //   try {
+  //     const res = await axios.post(
+  //       "http://172.10.18.166:80/sendFileToNotice",
+  //       formData
+  //     );
+  //     console.log(res);
+  //   } catch (ex) {
+  //     console.log(ex);
+  //   }
+  // };
 
   return (
     <div
@@ -71,6 +119,7 @@ const NewNotice = ({history}) => {
                 //console.log('Focus.', editor);
               }}
               />
+              <input type='file' onChange={fileUpload}/>
             </div>
             <button className="submit-button" onClick={submitReview}>입력</button>
         </div>
