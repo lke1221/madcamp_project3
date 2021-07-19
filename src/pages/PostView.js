@@ -18,7 +18,7 @@ const PostView = ({ history, location, match }) => {
   const editPost = () => {
     history.push({
       pathname: '/editnotice',
-      state:{title: data.title, detail: data.content}
+      state:{title: data.title, detail: data.content, hit: data.hit, name: data.name}
     })
   };
 

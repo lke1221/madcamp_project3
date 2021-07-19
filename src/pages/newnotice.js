@@ -19,7 +19,7 @@ const NewNotice = ({history}) => {
             date: moment().format("YYYY-MM-DD HH:mm:ss"),
             content: post.content,
             hit: 0,
-            name: "이권은"
+            name: window.sessionStorage.getItem('name')
         }).then((response)=>{
             alert('등록 완료!');
             console.log(response.data);

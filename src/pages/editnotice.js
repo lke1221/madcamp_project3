@@ -17,14 +17,14 @@ const EditNotice = ({history}, props) => {
   
   const submitReview = ()=>{
     console.log(post.title);
-    axios.post('http://localhost:3008/sendNotice', {
+    axios.post('http://localhost:3008/editNotice', {
             title: post.title,
             date: moment().format("YYYY-MM-DD HH:mm:ss"),
             content: post.content,
-            hit: 0,
-            name: "이권은"
+            hit: location.state.hit,
+            name: location.state.name
         }).then((response)=>{
-            alert('등록 완료!');
+            alert('수정 완료!');
             console.log(response.data);
             history.push('/notice');
         });
