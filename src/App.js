@@ -13,6 +13,7 @@ import SignUp from './pages/signup';
 import PostView from './pages/PostView'
 import ChangePassword from './pages/changepassword'
 import NewNotice from './pages/newnotice'
+import EditNotice from './pages/editnotice'
 import { FooterContainer } from './containers/footer'
 
 class App extends Component {
@@ -59,6 +60,7 @@ class App extends Component {
         <Route path='/changepassword' component={ChangePassword}/>
         <Route path='/postView/:no' component={PostView} />
         <Route path='/newnotice' component={NewNotice} />
+        <Route path='/editnotice' component={EditNotice}/>
       </Switch>
       <FooterContainer />
     </Router>
