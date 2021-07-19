@@ -16,10 +16,15 @@ const PostView = ({ history, location, match }) => {
   }, [ ]);
 
   const editPost = () => {
-    history.push({
-      pathname: '/editnotice',
-      state:{title: data.title, detail: data.content, hit: data.hit, name: data.name}
-    })
+    if(window.sessionStorage.getItem('position')=='admin'){
+      history.push({
+        pathname: '/editnotice',
+        state:{title: data.title, detail: data.content, hit: data.hit, name: data.name}
+      })
+    }
+    else{
+      alert("권한이 없습니다.");
+    }
   };
 
   return (
