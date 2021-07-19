@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./Home.css";
 import "../App.css";
 import Introduction from "../components/introduction";
+import Introduction2 from "../components/introduction2";
+import Introduction3 from "../components/introduction3";
+import Introduction4 from "../components/introduction4";
+import History from "./history";
 import Firstpage from "../components/firstpage";
-import Contactus from "../components/contactus";
 import { Link } from "react-scroll";
 
 const Home = () => {
@@ -31,41 +34,59 @@ const Home = () => {
           to="introduction"
           spy={true}
           smooth={true}
-          offset={-80}
+          offset={-150}
           duration={500}
-          style={{ color: "white", marginRight: 10 }}
+          style={{
+            color: "white",
+            marginLeft: 90,
+            marginRight: 100,
+            cursor: "pointer",
+          }}
         >
-          Your name
+          몰입캠프는
         </Link>
         <Link
           activeClass="active"
-          to="introduction"
+          to="introduction2"
           spy={true}
           smooth={true}
-          offset={0}
+          offset={-200}
           duration={500}
-          style={{ color: "white" }}
+          style={{ color: "white", marginRight: 100, cursor: "pointer" }}
         >
-          Your name
+          목적
         </Link>
         <Link
           activeClass="active"
-          to="introduction"
+          to="introduction3"
           spy={true}
           smooth={true}
-          offset={0}
+          offset={-90}
           duration={500}
-          style={{ color: "white" }}
+          style={{ color: "white", marginRight: 100, cursor: "pointer" }}
         >
-          Your name
+          WHY?
+        </Link>
+
+        <Link
+          activeClass="active"
+          to="introduction4"
+          spy={true}
+          smooth={true}
+          offset={-150}
+          duration={500}
+          style={{ color: "white", marginRight: 100, cursor: "pointer" }}
+        >
+          HISTORY
         </Link>
       </div>
 
       <Firstpage />
 
       <Introduction />
-
-      <Contactus />
+      <Introduction2 />
+      <Introduction3 />
+      <Introduction4 />
     </>
   );
 };

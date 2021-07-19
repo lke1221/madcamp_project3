@@ -27,16 +27,10 @@ function Introduction() {
 
   return (
     <>
-      <div className="body" id="introduction2">
-        <h1>목적</h1>
-        <p className="text">
-          본 코스의 목표는, 참가한 학생들의 성장과 참가자들의 네트워킹입니다.
-          2~3명이 한 팀을 이루어 앱(서비스)을 기획하고 개발합니다. 팀과
-          협업하면서, 스스로 학습하고 성장하는 것, 그래서 실제 필드에서 개발을
-          시작할 수 있는 기본적인 경험과 태도를 갖추는 것을 지향합니다. 또한,
-          스타트업 창업자들의 특강과 교류를 통해서 본인의 태도와 삶을 돌아보는
-          것도 지향합니다.
-        </p>
+      <div className="body" id="introduction3">
+        <Cards />
+        {/* <h1>후기</h1>
+        <Cards2 /> */}
       </div>
     </>
   );

@@ -16,16 +16,16 @@ import { FiMenu } from "react-icons/fi";
 import { GoX } from "react-icons/go";
 import logo from "../../images/몰입캠프_검정.png";
 
-function Navbar () {
+function Navbar() {
   const [click, setClick] = useState(false);
   const [logged, setLogged] = useState(false);
   const [navbar, setNavbar] = useState(false);
   const [button, setButton] = useState(true);
 
   const logout = () => {
-    window.sessionStorage.removeItem('email');
-    window.sessionStorage.removeItem('name');
-    window.sessionStorage.removeItem('position');
+    window.sessionStorage.removeItem("email");
+    window.sessionStorage.removeItem("name");
+    window.sessionStorage.removeItem("position");
     setLogged(!logged);
   };
 
@@ -75,10 +75,18 @@ function Navbar () {
               </Link>
             </li>
             <li className="nav-item">
+<<<<<<< HEAD
+              <Link to="/pick" className="nav-links" onClick={closeMobileMenu}>
+                Pick!
+              </Link>
+            </li>
+
+=======
               {(window.sessionStorage.getItem('name')===null)?
               <Link to='/' className="nav-links" onClick={()=>alert("로그인 후 이용가능합니다.")}>Histroy</Link>
               :<Link to="/history" className="nav-links" onClick={closeMobileMenu}>History</Link>}
             </li>
+>>>>>>> 0b431038089026df07219578854d412b8364a47a
             <li className="nav-item">
               <Link to="/faq" className="nav-links" onClick={closeMobileMenu}>
                 FAQ
@@ -94,14 +102,25 @@ function Navbar () {
               </Link>
             </li>
             <li className="nav-item-signup">
-            {(window.sessionStorage.getItem('name')===null)? <Link to="/login" className="nav-links-signup" onClick={closeMobileMenu}>Login</Link>:
-            <Link to='/' className="nav-links-signup" onClick={logout}>LogOut</Link>}
+              {window.sessionStorage.getItem("name") === null ? (
+                <Link
+                  to="/login"
+                  className="nav-links-signup"
+                  onClick={closeMobileMenu}
+                >
+                  Login
+                </Link>
+              ) : (
+                <Link to="/" className="nav-links-signup" onClick={logout}>
+                  LogOut
+                </Link>
+              )}
             </li>
-            </ul>
+          </ul>
         </div>
       </nav>
     </>
   );
-};
+}
 
 export default Navbar;
