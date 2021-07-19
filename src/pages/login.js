@@ -11,6 +11,7 @@ function Login({history}) {
     const [message, setMessage] = useState('');
     
     const login = () => {
+
         axios.post('http://172.10.18.166:80/login', {
             email: inputEmail,
             password: inputPw,
@@ -21,7 +22,6 @@ function Login({history}) {
                 user_name = response.data[0].name;
                 user_email = response.data[0].email;
                 user_position = response.data[0].position;
-                history.push('/');
 
                 window.sessionStorage.setItem('email', user_email);
                 window.sessionStorage.setItem('name', user_name);

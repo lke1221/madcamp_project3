@@ -16,27 +16,22 @@ const EditNotice = ({history}, props) => {
   })
   
   const submitReview = ()=>{
-    console.log(post.title);
-    axios.post('http://localhost:3008/editNotice', {
+    axios.post('http://172.10.18.166:80/getNoticeOne', {no: location.state.no}).then((response)=>{
+        const olddate = response.data[0].date;
+
+        axios.post('http://172.10.18.166:80/editNotice', {
             title: post.title,
             date: moment().format("YYYY-MM-DD HH:mm:ss"),
             content: post.content,
             hit: location.state.hit,
-            name: location.state.name
-        }).then((response)=>{
+            name: location.state.name,
+            olddate: olddate
+        }).then((response1)=>{
             alert('수정 완료!');
-            console.log(response.data);
+            console.log(response1.data);
             history.push('/notice');
         });
-
-    // Axios.post('http://localhost:3008/insert', {
-    //   title: post.title,
-    //   content: post.content,
-    //   name: "이권은"
-
-    // }).then(()=>{
-    //   alert('등록 완료!');
-    // })
+    });
   };
 
   const getValue = e => {
