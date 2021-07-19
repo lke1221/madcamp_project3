@@ -49,7 +49,7 @@ class SignUp extends Component {
         email: this.state.email           //입력한 email state값
     }
 
-    fetch('http://localhost:3008/sendEmail',{
+    fetch('http://172.10.18.166:80/sendEmail',{
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -64,40 +64,12 @@ class SignUp extends Component {
     })
   }
 
-  /*signup = () => {
-    //const a = this.state.name;
-    //this.setState({name:b})
-
-    //console.log(this.state.email + " / " + this.state.password + " / " + this.state.name + " / " + this.state.position);
-    if(this.state.formErrors.name=="" && this.state.formErrors.email=="" && this.state.formErrors.password=="" &&
-      this.state.formErrors.reenter_password=="" && this.state.formErrors.inputnumber=="" && this.state.inputnumber!=""){
-        axios.post('http://localhost:3008/register', {
-          email: this.state.email,
-          password: this.state.password,
-          name: this.state.name,
-          position: this.state.position
-        }).then((response)=>{
-            console.log(response.data.message);
-        });
-      }
-      else{
-        console.log("can't signup");
-      }
-  };*/
-
-  //e라는 코드를 입력했을 때
-  // email_verif = e => {
-  //   axios.post('http://localhost:3008/register', { e }).then((response)=>{
-  //           console.log(response);
-  //       });
-  // }
-
   handleSubmit = e => {
     e.preventDefault();
 
     if (formValid(this.state) && (this.state.number == this.state.inputnumber)) {
       this.setState({usingemail : true});
-      axios.post('http://localhost:3008/register', {
+      axios.post('http://172.10.18.166:80/register', {
         email: this.state.email,
         password: this.state.password,
         name: this.state.name,
