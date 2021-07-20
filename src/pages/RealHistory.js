@@ -22,7 +22,7 @@ const RealHistory = () => {
       }}
     >
       <div style={{width: 900}}>
-      <h1 style={{marginBottom: 50, fontSize: 30}}>History</h1>
+      <h1 style={{marginBottom: 50, fontSize: 30}}>연&nbsp;&nbsp;혁</h1>
       <CommonTable headersName={['', '']}>
         {
           dataList ? dataList.map((item, index) => {

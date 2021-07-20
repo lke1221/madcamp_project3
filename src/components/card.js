@@ -8,7 +8,7 @@ import three from "../images/3.jpg";
 function Cards() {
   return (
     <div className="cards">
-      <h1>WHY?</h1>
+      <h1>W&nbsp;H&nbsp;Y&nbsp;?</h1>
       <div className="cards__container">
         <div className="cards__wrapper">
           <ul className="cards__items">

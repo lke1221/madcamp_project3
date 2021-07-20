@@ -9,6 +9,7 @@ import Introduction5 from "../components/introduction5";
 import History from "./history";
 import Firstpage from "../components/firstpage";
 import { Link } from "react-scroll";
+import {CircleArrow as ScrollUpButton} from "react-scroll-up-button";
 
 const Home = () => {
   const [bar, setBar] = useState(false);
@@ -44,8 +45,9 @@ const Home = () => {
             cursor: "pointer",
           }}
         >
-          몰입캠프는
+          개요
         </Link>
+        {/* <div className="purpose"> */}
         <Link
           activeClass="active"
           to="introduction2"
@@ -57,6 +59,7 @@ const Home = () => {
         >
           목적
         </Link>
+        {/* </div> */}
         <Link
           activeClass="active"
           to="introduction3"
@@ -78,7 +81,7 @@ const Home = () => {
           duration={500}
           style={{ color: "white", marginRight: 100, cursor: "pointer" }}
         >
-          HISTORY
+          역사
         </Link>
 
         <Link
@@ -90,7 +93,7 @@ const Home = () => {
           duration={500}
           style={{ color: "white", marginRight: 100, cursor: "pointer" }}
         >
-          LECTURER
+          강사진
         </Link>
       </div>
 
@@ -101,6 +104,7 @@ const Home = () => {
       <Introduction3 />
       <Introduction4 />
       <Introduction5 />
+      <ScrollUpButton/>
     </>
   );
 };
