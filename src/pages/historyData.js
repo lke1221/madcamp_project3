@@ -2,6 +2,10 @@ import axios from 'axios';
 
 const historyData = [
     {
+        "condition": "2021 여름",
+        "detail": "참가생 42명, 몰입캠프 12기"
+    },
+    {
         "condition": "2020 겨울",
         "detail": "참가생 55명, 몰입캠프 11기"
     },

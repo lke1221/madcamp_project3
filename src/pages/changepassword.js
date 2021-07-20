@@ -140,7 +140,14 @@ class ChangePassword extends Component {
         alignItems: 'center',
         //height: '90vh'
       }}>
-        <div className="form-wrapper">
+        <div className="form-wrapper"
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              flexDirection: 'column'
+            }}>
+          <div>
           <h1 style={{marginBottom: 50,
                 marginTop: 80,
                 paddingVertical: 8,
@@ -152,6 +159,7 @@ class ChangePassword extends Component {
                 textAlign: "center",
                 fontSize: 30,
                 fontWeight: "bold"}}>Change Password</h1>
+          </div>
           <form onSubmit={this.handleSubmit} noValidate>
             <div className="email">
               <div style={{

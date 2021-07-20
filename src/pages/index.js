@@ -9,6 +9,7 @@ import Introduction5 from "../components/introduction5";
 import History from "./history";
 import Firstpage from "../components/firstpage";
 import { Link } from "react-scroll";
+import {CircleArrow as ScrollUpButton} from "react-scroll-up-button";
 
 const Home = () => {
   const [bar, setBar] = useState(false);
@@ -103,6 +104,7 @@ const Home = () => {
       <Introduction3 />
       <Introduction4 />
       <Introduction5 />
+      <ScrollUpButton/>
     </>
   );
 };
