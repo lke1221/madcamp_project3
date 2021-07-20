@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import './newnotice.css'
 import PostList from "./PostList";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -16,11 +17,13 @@ const Pick = ({ history }) => {
         //paddingRight: 400
       }}
     >
+      <h1 style={{ marginBottom: 50, fontSize: 30 }}>역대 금주의 PICK!</h1>
       <div style={{ width: 900, height: 450}}>
-        <h1 style={{ marginBottom: 50, fontSize: 30 }}>역대 금주의 PICK!</h1>
 
-        <button
-          className="new-notice"
+
+      </div>
+      <button
+          className="submit-button"
           style={{ marginTop: 20, fontSize: 20 }}
           onClick={
             window.sessionStorage.getItem("position") === "admin"
@@ -29,9 +32,7 @@ const Pick = ({ history }) => {
           }
         >
           Add
-        </button>
-        {/*</Link>*/}
-      </div>
+      </button>
     </div>
   );
 };
