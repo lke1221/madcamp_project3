@@ -3,7 +3,6 @@ import "../App.css";
 import "./introduction.css";
 import Cards from "./card";
 import Cards2 from "./card2";
-import { Link } from "react-router-dom";
 
 function Introduction() {
   function isElementUnderBottom(elem, triggerDiff) {

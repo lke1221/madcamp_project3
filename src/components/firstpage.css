@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "OneMobilePOP";
+  src: url("../font/ONEMobilePOP.ttf")
+}
+
 .hero-container {
   /* background: url('/images/img-home.jpg') center center/cover no-repeat; */
   background-color: black;
@@ -14,7 +19,26 @@
 .img {
   position: absolute;
   top: 300px;
-  left: 1300px;
+  left: 1270px;
+}
+
+.firstpagetextimg{
+  max-width: 50%;
+  position: absolute;
+  top:400px;
+  left: 240px;
+}
+
+.leftimg{
+  position: absolute;
+  top:350px;
+  left: 140px;
+}
+
+.rightimg{
+  position: absolute;
+  top:380px;
+  left: 1140px;
 }
 
 .first-text {
@@ -47,7 +71,8 @@
 }
 
 .hero-btns {
-  margin-top: 32px;
+  margin-top: 140px;
+  margin-left: 90px;
 }
 
 .hero-btns .btn {
