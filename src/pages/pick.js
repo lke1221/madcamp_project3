@@ -1,5 +1,4 @@
 import React, { useState, Component } from "react";
-
 import PostList from "./PostList";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -35,15 +34,15 @@ const Pick = ({ children }) => {
       style={{
         display: "flex",
         justifyContent: "center",
-        // alignItems: "center",
-        flexDirection: "row",
+        alignItems: "center",
+        flexDirection: "column",
         paddingTop: 80,
         //paddingLeft: 400,
         //paddingRight: 400
       }}
     >
-      <div style={{ width: 900, height: 450 }}>
-        <h1 style={{ marginBottom: 50, fontSize: 30 }}>역대 금주의 PICK!</h1>
+      <h1 style={{ marginBottom: 50, fontSize: 30 }}>역대 금주의 PICK!</h1>
+      <div style={{ width: 900, height: 450 }}> </div>
         {isOpenPopup ? (
           <div style={{ alignItems: "center" }}>
             <Popup
@@ -67,7 +66,6 @@ const Pick = ({ children }) => {
         ) : (
           <></>
         )}
-      </div>
     </div>
   );
 };
