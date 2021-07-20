@@ -58,9 +58,11 @@ function Navbar() {
     <>
       <nav className={navbar ? "navbar" : "navbar active"}>
         <div className="navbar-container">
+          <div className="logologo">
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
             <img src={logo} alt="logo" width="80" />
           </Link>
+          </div>
           <div className="menu-icon" onClick={handleClick}>
             {click ? <GoX /> : <FiMenu />}
           </div>

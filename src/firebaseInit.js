@@ -1,5 +1,5 @@
 import firebase from "firebase/app";
-
+import "firebase/storage";
 const firebaseConfig = {
   apiKey: "AIzaSyACzmkgMBjcJ6uR8NgwDHH1o4niV5GeVVQ",
   authDomain: "react-72872.firebaseapp.com",
@@ -10,4 +10,11 @@ const firebaseConfig = {
   measurementId: "G-Z7B1SYNPVF",
 };
 
-export default firebase.initializeApp(firebaseConfig);
+// firebaseConfig 정보로 firebase 시작
+firebase.initializeApp(firebaseConfig);
+
+// firebase의 firestore 인스턴스를 변수에 저장
+const storage = firebase.storage();
+
+// 필요한 곳에서 사용할 수 있도록 내보내기
+export { storage, firebase as default };

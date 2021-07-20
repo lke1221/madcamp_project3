@@ -12,12 +12,19 @@
   text-align: center;
   justify-content: center;
   align-items: center;
+  margin-top: 200px;
+}
+
+.purpose{
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .text {
   width: 50%;
   /* height: 50%; */
   line-height: 300%;
+  margin-top: 8px;
 }
 
 .text {
@@ -33,4 +40,8 @@
   text-align: center;
   justify-content: center;
   align-items: center;
+}
+
+.button{
+  height:130px;
 }

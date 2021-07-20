@@ -33,7 +33,7 @@ function Introduction() {
   return (
     <>
       <div className="body" id="introduction5">
-        <h1 style={{marginBottom: 40, marginTop: 50}}>강사진</h1>
+        <h1 style={{marginBottom: 40, marginTop: 50}}>강&nbsp;사&nbsp;진</h1>
         <div className="lecturer">
             <div style={{marginRight: 40}}>
                 <img src={jang} style={{height:100, width:100, marginBottom: 10}}/>
