@@ -4,6 +4,7 @@ import CommonTableColumn from '../components/table2/CommonTableColumn';
 import CommonTableRow from '../components/table2/CommonTableRow';
 import { historyData } from './historyData';
 import axios from 'axios';
+import {CircleArrow as ScrollUpButton} from "react-scroll-up-button";
 
 const RealHistory = () => {
   const [ dataList, setDataList ] = useState([]);
@@ -38,6 +39,7 @@ const RealHistory = () => {
         }
       </CommonTable>
       </div>
+      <ScrollUpButton />
     </div>
   );
 };

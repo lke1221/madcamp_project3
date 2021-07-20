@@ -1,9 +1,9 @@
-
 import React, {useState} from 'react';
 import { faqData } from './faqData';
 import styled from 'styled-components';
 import { IconContext } from 'react-icons';
 import { FiPlus, FiMinus } from 'react-icons/fi';
+import {CircleArrow as ScrollUpButton} from "react-scroll-up-button";
 
 const AccordionSection = styled.div`
   display: flex;
@@ -108,6 +108,7 @@ const FAQ = () => {
       </AccordionSection>
     </IconContext.Provider>
     </div>
+    <ScrollUpButton />
     </div>
   );
 };
