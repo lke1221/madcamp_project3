@@ -2,7 +2,6 @@ import React, { useState, Component } from "react";
 import PostList from "./PostList";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import firebaseInit from "../firebaseInit";
 //import PopUp from "./PopUp";
 import PopUpContent from "./PopUpContent";
 import ReactDom from "react-dom";

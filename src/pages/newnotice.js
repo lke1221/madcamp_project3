@@ -50,6 +50,18 @@ const NewNotice = ({history}) => {
     })
   };
 
+  // const FileUpload = (e) => {
+  //   const file = e.target.files[0];
+  //   const storageRef = app.storage().ref();
+  //   const fileRef = storageRef.child(file.name);
+  //   console.log(file.name);
+  //   fileRef.put(file).then(() => {
+  //     console.log("Uploaded a file");
+  //   });
+  //   // const file = e.target.files[0];
+  //   // const fileupload = storage.ref().put(file);
+  // }
+
   // const fileUpload = (e) => {
   //   const file = e.target.files[0];
   // }
@@ -119,7 +131,7 @@ const NewNotice = ({history}) => {
                 //console.log('Focus.', editor);
               }}
               />
-              <input type='file'/>
+              <input type='file' onChange={FileUpload}/>
             </div>  
         </div>
         <button className="submit-button" onClick={submitReview}>입력</button>
