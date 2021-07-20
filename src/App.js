@@ -14,6 +14,7 @@ import SignUp from "./pages/signup";
 import PostView from "./pages/PostView";
 import ChangePassword from "./pages/changepassword";
 import NewNotice from "./pages/newnotice";
+import NewPick from "./pages/newpick";
 import EditNotice from "./pages/editnotice";
 import { FooterContainer } from "./containers/footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -65,6 +66,7 @@ class App extends Component {
             <Route path="/changepassword" component={ChangePassword} />
             <Route path="/postView/:no" component={PostView} />
             <Route path="/newnotice" component={NewNotice} />
+            <Route path="/newpick" component={NewPick} />
             <Route path="/editnotice" component={EditNotice} />
             <Route path="/realhistory" component={RealHistory} />
           </Switch>
