@@ -12,8 +12,7 @@ export function FooterContainer() {
             <Footer.Column>
               <Footer.Title>몰입캠프</Footer.Title>
               <Footer.Link href="/realhistory">Story</Footer.Link>
-              <Footer.Link href="#">Clients</Footer.Link>
-              <Footer.Link href="#">Testimonials</Footer.Link>
+              <Footer.Link href="/application">Guide</Footer.Link>
             </Footer.Column>
             <Footer.Column>
               <Footer.Title>후원사</Footer.Title>
