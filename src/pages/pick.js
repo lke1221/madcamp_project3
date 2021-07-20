@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
-
-=======
-import React, { useState, Component } from "react";
->>>>>>> 691b7b858cf36c8046a2e6946b503e38c3a929b0
 import PostList from "./PostList";
 import axios from "axios";
 import { Link } from "react-router-dom";
