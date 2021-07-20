@@ -81,7 +81,7 @@ const Home = () => {
           duration={500}
           style={{ color: "white", marginRight: 100, cursor: "pointer" }}
         >
-          HISTORY
+          역사
         </Link>
 
         <Link
@@ -93,7 +93,7 @@ const Home = () => {
           duration={500}
           style={{ color: "white", marginRight: 100, cursor: "pointer" }}
         >
-          LECTURER
+          강사진
         </Link>
       </div>
 

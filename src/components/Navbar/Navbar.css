@@ -18,9 +18,15 @@
     z-index: 1;
   } */
   .navbar-container {
+    margin-left: 900px;
     display: flex;
     height: 80px;
     max-width: 5000px;
+  }
+
+  .logologo{
+    margin-left: -820px;
+    margin-right: 380px;
   }
   
   .navbar-logo {
@@ -55,6 +61,7 @@
   }
   
   .nav-links {
+    margin-left: 20px;
     color: #fff;
     display: flex;
     align-items: center;
@@ -167,7 +174,6 @@
       top: 0;
       left: 0;
       transform: translate(25%, 50%);
-      margin-top:-10px;
     }
   
     .menu-icon {
