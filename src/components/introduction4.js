@@ -47,9 +47,23 @@ function Introduction() {
       </div>
       <p></p>
 
-      <div style={{ textAlign: "center" }}>
+      <Link to="/realhistory">
+            <button type='button' className='button' style={{height:"40px", width:"14%",
+                                                                marginLeft:'43%',
+                                                                marginTop:'5%',
+                                                                marginRight:'43%',
+                                                                fontSize: '100%',
+                                                                backgroundColor: "black",
+                                                                color: "white",
+                                                                borderRadius:".50rem",
+                                                                alignItems:'center',
+                                                                justifyContent: 'center',
+                                                                position:'relative'}}>역사 더보기</button>
+        </Link>
+
+      {/* <div style={{ textAlign: "center" }}>
         <Link to="/realhistory">See more..</Link>
-      </div>
+      </div> */}
     </>
   );
 }
