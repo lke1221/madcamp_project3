@@ -36,9 +36,10 @@ function Introduction() {
       </div>
 
       <Link to="/history">
-            <button type='button' className='button' style={{height:"40px", width:"14%",
-                                                                marginLeft:'43%',
-                                                                marginRight:'43%',
+            <button type='button' className='button' style={{height:"50px", width:"20%",
+                                                                marginLeft:'40%',
+                                                                marginRight:'40%',
+                                                                marginTop:'-100px',
                                                                 fontSize: '100%',
                                                                 backgroundColor: "black",
                                                                 color: "white",

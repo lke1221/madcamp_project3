@@ -44,8 +44,9 @@ const Home = () => {
             cursor: "pointer",
           }}
         >
-          몰입캠프는
+          개요
         </Link>
+        {/* <div className="purpose"> */}
         <Link
           activeClass="active"
           to="introduction2"
@@ -57,6 +58,7 @@ const Home = () => {
         >
           목적
         </Link>
+        {/* </div> */}
         <Link
           activeClass="active"
           to="introduction3"
