@@ -9,17 +9,17 @@ import axios from 'axios';
 const PostList = props => {
   const [ dataList, setDataList ] = useState([]);
 
-  /*useEffect(() => {
+  useEffect(() => {
     axios.get('http://172.10.18.166:80/getNotice').then((response)=>{
       setDataList(response.data);
   });
 
     
-  }, [ ])*/
-
-  useEffect(() => {
-    setDataList(postList);
   }, [ ])
+
+  /*useEffect(() => {
+    setDataList(postList);
+  }, [ ])*/
 
   return (
     <>
