@@ -34,10 +34,22 @@ function Introduction() {
         {/* <h1>후기</h1>
         <Cards2 /> */}
       </div>
-      <div style={{ textAlign: "center"}}>
-        <Link to="/history">몰입캠프 후기 보기</Link>
-      </div>
+
+      <Link to="/history">
+            <button type='button' className='button' style={{height:"40px", width:"14%",
+                                                                marginLeft:'43%',
+                                                                marginRight:'43%',
+                                                                fontSize: '100%',
+                                                                backgroundColor: "black",
+                                                                color: "white",
+                                                                borderRadius:".50rem",
+                                                                alignItems:'center',
+                                                                justifyContent: 'center',
+                                                                position:'relative'}}>몰입캠프 후기 보기</button>
+        </Link>
+
     </>
+    
   );
 }
 
