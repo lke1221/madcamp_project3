@@ -5,14 +5,14 @@ import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import axios from "axios";
 import moment from "moment";
 import { storage } from "../firebaseInit";
-import Card from "../components/carditem3";
+
 
 const NewPick = ({ history }) => {
   const [post, setPost] = useState({
     title: "",
     content: "",
   });
-  const [title, setTitle] = useState(null);
+  const [title, setTitle] = useState("");
   const [image, setImage] = useState(null);
   const [url, setUrl] = useState("");
   const [progress, setProgress] = useState(0);
@@ -22,6 +22,18 @@ const NewPick = ({ history }) => {
       setImage(e.target.files[0]);
     }
   };
+
+  const titleChange = (e) => {
+    setTitle(e.target.value);
+  }
+  
+
+  // const getAllPicks = () => {
+  //   axios.get('http://172.10.18.166:80/getpicks').then((response)=> {
+  //     console.log(response.data);
+  //     setDataList(response.data);
+  //   });
+  // }
 
   const submitReview = () => {
     const image_upload = storage.ref(`images/${image.name}`).put(image);
@@ -51,7 +63,7 @@ const NewPick = ({ history }) => {
     console.log(url);
 
     axios.post('http://172.10.18.166:80/uploadpicks', {
-            title: title,
+            title: "asdf",
             url: url,
         }).then((response)=>{
             console.log(response);
@@ -77,7 +89,7 @@ const NewPick = ({ history }) => {
         type="text"
         placeholder="title"
         style={{ width: 50, marginBottom: 10 }}
-        onChange={(text) => setTitle(text)}
+        onChange={titleChange}
       />
 
       <label
@@ -108,6 +120,10 @@ const NewPick = ({ history }) => {
         등록
       </button>
     </div>
+
+    
+
+
   );
 };
 
