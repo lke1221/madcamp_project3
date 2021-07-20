@@ -5,6 +5,7 @@ import Introduction from "../components/introduction";
 import Introduction2 from "../components/introduction2";
 import Introduction3 from "../components/introduction3";
 import Introduction4 from "../components/introduction4";
+import Introduction5 from "../components/introduction5";
 import History from "./history";
 import Firstpage from "../components/firstpage";
 import { Link } from "react-scroll";
@@ -79,6 +80,18 @@ const Home = () => {
         >
           HISTORY
         </Link>
+
+        <Link
+          activeClass="active"
+          to="introduction5"
+          spy={true}
+          smooth={true}
+          offset={-150}
+          duration={500}
+          style={{ color: "white", marginRight: 100, cursor: "pointer" }}
+        >
+          LECTURER
+        </Link>
       </div>
 
       <Firstpage />
@@ -87,6 +100,7 @@ const Home = () => {
       <Introduction2 />
       <Introduction3 />
       <Introduction4 />
+      <Introduction5 />
     </>
   );
 };

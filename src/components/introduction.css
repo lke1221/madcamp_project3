@@ -26,3 +26,11 @@
 .body:active {
   border-bottom: 2px solid white;
 }
+
+.lecturer{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}

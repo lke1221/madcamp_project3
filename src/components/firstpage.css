@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "OneMobilePOP";
+  src: url("../font/ONEMobilePOP.ttf")
+}
+
 .hero-container {
   /* background: url('/images/img-home.jpg') center center/cover no-repeat; */
   background-color: black;
@@ -10,6 +15,46 @@
   box-shadow: inset 0 0 0 1000px black;
   object-fit: contain;
 }
+
+.img {
+  position: absolute;
+  top: 300px;
+  left: 1270px;
+}
+
+.firstpagetextimg{
+  max-width: 50%;
+  position: absolute;
+  top:400px;
+  left: 240px;
+}
+
+.leftimg{
+  position: absolute;
+  top:350px;
+  left: 140px;
+}
+
+.rightimg{
+  position: absolute;
+  top:380px;
+  left: 1140px;
+}
+
+.first-text {
+  position: relative;
+  left: -600px;
+  top: -100px;
+  text-align: left;
+}
+
+.second-text {
+  position: relative;
+  left: -300px;
+  top: -80px;
+  text-align: left;
+}
+
 
 .hero-container > h1 {
   color: #fff;
@@ -26,7 +71,8 @@
 }
 
 .hero-btns {
-  margin-top: 32px;
+  margin-top: 140px;
+  margin-left: 90px;
 }
 
 .hero-btns .btn {
@@ -39,13 +85,16 @@
 
 .buttons {
   display: grid;
-  /* grid-template-columns: repeat(2, auto); */
-  grid-gap: 10px;
+  grid-template-columns: repeat(2, auto); 
+  /* grid-gap: 20px; */
   list-style: none;
   text-align: center;
-  /*  width: 60vw; */
-  justify-content: center;
-  /* margin-right: 2rem; */
+  width: 28vw;
+  /*justify-content: center;*/
+  /* margin-right: 22rem;  */
+  position: relative;
+  left: -350px;
+  top: -40px;
 }
 
 .title {

@@ -18,6 +18,7 @@ import NewPick from "./pages/newpick";
 import EditNotice from "./pages/editnotice";
 import { FooterContainer } from "./containers/footer";
 import ScrollToTop from "./components/ScrollToTop";
+import RealHistory from "./pages/RealHistory"
 
 class App extends Component {
   constructor(props) {
@@ -67,6 +68,7 @@ class App extends Component {
             <Route path="/newnotice" component={NewNotice} />
             <Route path="/newpick" component={NewPick} />
             <Route path="/editnotice" component={EditNotice} />
+            <Route path="/realhistory" component={RealHistory} />
           </Switch>
           <FooterContainer style={{ position: "absolute", bottom: 0 }} />
         </ScrollToTop>

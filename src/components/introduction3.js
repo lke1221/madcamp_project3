@@ -3,6 +3,8 @@ import "../App.css";
 import "./introduction.css";
 import Cards from "./card";
 import Cards2 from "./card2";
+import { Link } from "react-router-dom";
+import { GoTextSize } from "react-icons/go";
 
 function Introduction() {
   function isElementUnderBottom(elem, triggerDiff) {
@@ -31,6 +33,9 @@ function Introduction() {
         <Cards />
         {/* <h1>후기</h1>
         <Cards2 /> */}
+      </div>
+      <div style={{ textAlign: "center"}}>
+        <Link to="/history">몰입캠프 후기 보기</Link>
       </div>
     </>
   );

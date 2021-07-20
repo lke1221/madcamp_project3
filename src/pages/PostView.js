@@ -9,21 +9,21 @@ const PostView = ({ history, location, match }) => {
 
   const { no } = match.params;
 
-  useEffect(() => {
+  /*useEffect(() => {
     axios.post('http://172.10.18.166:80/getNoticeOne', {no: no}).then((response)=>{
             setData(response.data[0]);
         });
-  }, [ ]);
-
-  /*useEffect(() => {
-    setData(getPostByNo(no));
   }, [ ]);*/
+
+  useEffect(() => {
+    setData(getPostByNo(no));
+  }, [ ]);
   
   const editPost = () => {
     if(window.sessionStorage.getItem('position')=='admin'){
       history.push({
         pathname: '/editnotice',
-        state:{title: data.title, detail: data.content, hit: data.hit, name: data.name}
+        state:{title: data.title, detail: data.content, hit: data.hit, name: data.name, no: data.no}
       })
     }
     else{

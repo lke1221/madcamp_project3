@@ -27,10 +27,10 @@ function Introduction() {
   return (
     <>
       <div className="body" id="introduction">
-        <h1>몰입캠프는</h1>
-        <p className="text">
+        <h1>개요</h1>
+        {/* <p className="text">
           학생들이 자율적으로 집중개발을 경험하는 프로그래밍 캠프입니다.
-        </p>
+        </p> */}
         <p className="text">
           스타트업이던, 대기업이던, 중견기업이던, 항상 좋은 인재들이 모자란다고
           합니다. 공대생들은 각박한 공부와 경쟁 속에서 지쳐가는 것 같은데, 왜

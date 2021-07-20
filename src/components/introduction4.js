@@ -48,7 +48,7 @@ function Introduction() {
       <p></p>
 
       <div style={{ textAlign: "center" }}>
-        <Link to="/history">See more..</Link>
+        <Link to="/realhistory">See more..</Link>
       </div>
     </>
   );

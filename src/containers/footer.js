@@ -11,7 +11,7 @@ export function FooterContainer() {
           <Footer.Row>
             <Footer.Column>
               <Footer.Title>몰입캠프</Footer.Title>
-              <Footer.Link href="#">Story</Footer.Link>
+              <Footer.Link href="/realhistory">Story</Footer.Link>
               <Footer.Link href="#">Clients</Footer.Link>
               <Footer.Link href="#">Testimonials</Footer.Link>
             </Footer.Column>

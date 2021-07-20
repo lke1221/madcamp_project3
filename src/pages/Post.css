@@ -4,35 +4,38 @@
   }
   
   .post-view-go-list-btn {
-    border: 0;
-    padding: 10px;
+    border: black solid 0.1px;
+    border-radius: 5px;
+    padding: 5px;
     margin-top: 20px;
-    background-color: #ffd9d9;
+    background-color: transparent;
     align-self: center;
     font-size: 15px;
-    width: 200px;
+    width: 150px;
   }
 
   .edit-button {
-    border: 0;
-    padding: 10px;
+    border: black solid 0.1px;
+    border-radius: 5px;
+    padding: 5px;
     margin-top: 20px;
-    margin-right: 10px;
-    background-color: #ffd9d9;
+    margin-right: 5px;
+    background-color: transparent;
     align-self: center;
     font-size: 15px;
-    width: 200px;
+    width: 50px;
   }
 
   .delete-button {
-    border: 0;
-    padding: 10px;
+    border: black solid 0.1px;
+    border-radius: 5px;
+    padding: 5px;
     margin-top: 20px;
-    margin-right: 10px;
-    background-color: #ffd9d9;
+    margin-right: 5px;
+    background-color: transparent;
     align-self: center;
     font-size: 15px;
-    width: 200px;
+    width: 50px;
   }
   
   .post-view-row {

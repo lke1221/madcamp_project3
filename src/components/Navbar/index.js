@@ -75,6 +75,7 @@ function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
+<<<<<<< HEAD
               {window.sessionStorage.getItem("name") === null ? (
                 <Link
                   to="/"
@@ -92,6 +93,11 @@ function Navbar() {
                   Pick!
                 </Link>
               )}
+=======
+              {(window.sessionStorage.getItem('name')===null)?
+                <Link to='/' className="nav-links" onClick={()=>alert("로그인 후 이용가능합니다.")}>Pick!</Link>
+                :<Link to="/pick" className="nav-links" onClick={closeMobileMenu}>Pick!</Link>}
+>>>>>>> db130631d8bab67557176c2f9572bdcc87d1546e
             </li>
             <li className="nav-item">
               <Link to="/faq" className="nav-links" onClick={closeMobileMenu}>
