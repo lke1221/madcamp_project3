@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import "./newnotice.css";
+//import "./newnotice.css";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import axios from "axios";
 import moment from "moment";
 
-const NewNotice = ({ history }) => {
+const NewPick = ({ history }) => {
   const [post, setPost] = useState({
     title: "",
     content: "",
@@ -50,32 +50,11 @@ const NewNotice = ({ history }) => {
         <h1>New Notice</h1>
         <div className="form-wrapper">
           <input
-            className="title-input"
+            style={{ width: 40 }}
+            className="input"
             type="text"
             placeholder="제목"
             onChange={getValue}
-          />
-          <CKEditor
-            editor={ClassicEditor}
-            data="내용을 입력하세요"
-            onReady={(editor) => {
-              // You can store the "editor" and use when it is needed.
-              console.log("Editor is ready to use!", editor);
-            }}
-            onChange={(event, editor) => {
-              const data = editor.getData();
-              console.log({ event, editor, data });
-              setPost({
-                ...post,
-                content: data,
-              });
-            }}
-            onBlur={(event, editor) => {
-              //console.log('Blur.', editor);
-            }}
-            onFocus={(event, editor) => {
-              //console.log('Focus.', editor);
-            }}
           />
         </div>
         <button className="submit-button" onClick={submitReview}>
@@ -86,4 +65,4 @@ const NewNotice = ({ history }) => {
   );
 };
 
-export default NewNotice;
+export default NewPick;
