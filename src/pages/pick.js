@@ -8,7 +8,6 @@ import ReactDom from "react-dom";
 import Popup from "reactjs-popup";
 import Card from "../components/carditem3";
 import {CircleArrow as ScrollUpButton} from "react-scroll-up-button";
-import Card from "../components/carditem3";
 
 import { firestore } from "../firebaseInit";
 
