@@ -91,8 +91,9 @@ function Login({history}) {
                                                                 marginTop: 20,
                                                                 marginBottom:20,
                                                                 fontSize: 20,
-                                                                backgroundColor: "green",
-                                                                color: "white"}}>Login</button>
+                                                                backgroundColor: "black",
+                                                                color: "white",
+                                                                borderRadius: 5}}>Login</button>
             </div>
             <div style={{//height:"40px", 
                   marginTop: 15,

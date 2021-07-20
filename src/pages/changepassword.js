@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import { Link } from 'react-router-dom'
 import axios from 'axios';
+import {IoIosSend} from 'react-icons/io';
 
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+.ac.kr$/
@@ -184,8 +185,12 @@ class ChangePassword extends Component {
               />
               <button onClick={this.sendEmail} style={{marginLeft:15,
                                                 fontSize:20,
-                                                backgroundColor: "green",
-                                                color: "white"}}> 인증 </button>
+                                                backgroundColor: "transparent",
+                                                color: "black",
+                                                borderRadius: 5,
+                                                height: 40,
+                                                width: 40,
+                                                paddingTop: 2}}><IoIosSend/></button>
               <div>
               {formErrors.email.length > 0 && (
                 <span className="errorMessage">{formErrors.email}</span>
@@ -265,12 +270,14 @@ class ChangePassword extends Component {
             </div>
             <div className="createAccount"
               style={{marginTop: 20}}>
-                <button type="submit" /*onClick={this.signup}*/ style={{height:"50px", 
-                                      width:"200px",
-                                      marginTop: 30,
-                                      fontSize: 20,
-                                      backgroundColor: "green",
-                                      color: "white"}}>Submit</button>
+                <button type="submit" style={{height:"40px", 
+                                        width:"180px",
+                                        marginTop: 20,
+                                        marginBottom:20,
+                                        fontSize: 20,
+                                        backgroundColor: "black",
+                                        color: "white",
+                                        borderRadius: 5}}>Submit</button>
             </div>
             <div style={{//height:"40px", 
                   marginTop: 15,
