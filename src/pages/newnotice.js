@@ -4,6 +4,7 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import axios from 'axios';
 import moment from 'moment';
+import {storage} from '../firebaseInit';
 
 
 const NewNotice = ({history}) => {
@@ -13,28 +14,50 @@ const NewNotice = ({history}) => {
     content:''
   })
 
-  // const [file, setFile] = useState();
-  // const [fileName, setFileName] = useState("")
-  
-  const submitReview = ()=>{
-    // console.log(file);
-    // const data = new FormData();
-    // data.append('file', file)
+  const [file, setFile] = useState(null);
+  const [url, setUrl] = useState("");
 
-    // axios.post('http://172.10.18.166:80/sendFileToNotice', data, {
-    //   headers: {
-    //     "Content-Type": "multipart/form-data",
-    //   }
-    // }).then((response)=>{
-    //           console.log('file upload success');
-    //         });
+  const change = (e) => {
+    if (e.target.files[0]) {
+      setFile(e.target.files[0]);
+    }
+  };
+
+  const submitReview = ()=>{
+
+    const upload = storage.ref(`notice/${file.name}`).put(file);
+    upload.on(
+      "state_changed",
+      (snapshot) => {
+        // const progress = Math.round(
+        //   (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        // );
+        // setProgress(progress);
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        storage
+          .ref("notice")
+          .child(file.name)
+          .getDownloadURL()
+          .then((url) => {
+            setUrl(url);
+          });
+      }
+    );
+
+    console.log(file.name);
+    console.log(url);
 
     axios.post('http://172.10.18.166:80/sendNotice', {
             title: post.title,
             date: moment().format("YYYY-MM-DD HH:mm:ss"),
             content: post.content,
             hit: 0,
-            name: window.sessionStorage.getItem('name')
+            name: window.sessionStorage.getItem('name'),
+            url: url
         }).then((response)=>{
             alert('등록 완료!');
             console.log(response.data);
@@ -49,51 +72,6 @@ const NewNotice = ({history}) => {
       title: value
     })
   };
-
-  // const FileUpload = (e) => {
-  //   const file = e.target.files[0];
-  //   const storageRef = app.storage().ref();
-  //   const fileRef = storageRef.child(file.name);
-  //   console.log(file.name);
-  //   fileRef.put(file).then(() => {
-  //     console.log("Uploaded a file");
-  //   });
-  //   // const file = e.target.files[0];
-  //   // const fileupload = storage.ref().put(file);
-  // }
-
-  // const fileUpload = (e) => {
-  //   const file = e.target.files[0];
-  // }
-
-  // const onFileUpload = e => {
-  //   setPost({
-  //     ...post,
-  //     file: e.target.file[0]
-  //   })
-  //   //console.log(e.target.files[0])
-  // }
-
-  // const saveFile = (e) => {
-  //   console.log(e.target);
-  //   setFile(e.target.file[0]);
-  //   setFileName(e.target.file[0].name);
-  // };
-
-  // const uploadFile = async (e) => {
-  //   const formData = new FormData();
-  //   formData.append("file", file);
-  //   formData.append("fileName", fileName);
-  //   try {
-  //     const res = await axios.post(
-  //       "http://172.10.18.166:80/sendFileToNotice",
-  //       formData
-  //     );
-  //     console.log(res);
-  //   } catch (ex) {
-  //     console.log(ex);
-  //   }
-  // };
 
   return (
     <div
@@ -118,7 +96,7 @@ const NewNotice = ({history}) => {
               }}
               onChange={(event, editor) => {
                 const data = editor.getData();
-                console.log({ event, editor, data });
+                //console.log({ event, editor, data });
                 setPost({
                   ...post,
                   content: data
@@ -131,7 +109,7 @@ const NewNotice = ({history}) => {
                 //console.log('Focus.', editor);
               }}
               />
-              <input type='file' onChange={FileUpload}/>
+              <input type='file' onChange={change}/>
             </div>  
         </div>
         <button className="submit-button" onClick={submitReview}>입력</button>

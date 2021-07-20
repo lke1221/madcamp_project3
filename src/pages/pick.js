@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import PopUpContent from "./PopUpContent";
 import ReactDom from "react-dom";
 import Popup from "reactjs-popup";
+import {CircleArrow as ScrollUpButton} from "react-scroll-up-button";
 
 import { firestore } from "../firebaseInit";
 
@@ -57,6 +58,7 @@ const Pick = ({ children }) => {
         <></>
       )}
       <div style={{ width: 900, height: 450 }}></div>
+      <ScrollUpButton />
     </div>
   );
 };

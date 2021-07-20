@@ -5,6 +5,7 @@ import CommonTableRow from '../components/table2/CommonTableRow';
 import { recruitData } from './recruitData';
 import "./application.css";
 import axios from 'axios';
+import {CircleArrow as ScrollUpButton} from "react-scroll-up-button";
 
 const Application = () => {
   const [ dataList, setDataList ] = useState([]);
@@ -51,6 +52,7 @@ const Application = () => {
       </div>
       <button style={{marginTop: 30, backgroundColor: 'transparent', borderRadius: 3, width: 200, fontSize: 25,
                       height: 50}}>지원하기</button>
+      <ScrollUpButton />
     </div>
   );
 };
