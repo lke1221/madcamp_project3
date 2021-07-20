@@ -50,7 +50,7 @@ const Pick = ({ children }) => {
             trigger={
               <button
                 className="submit"
-                style={{ marginTop: 20, fontSize: 20 }}
+                style={{ marginTop: 20, fontSize: 20, marginLeft:220, marginBottom: 50}}
                 onClick={
                   window.sessionStorage.getItem("position") === "admin"
                     ? openPopup

@@ -35,6 +35,8 @@ h1 {
   border-radius: 10px;
   flex-direction: row;
   flex-flow: row;
+  width:600px;
+  height:600px;
 }
 
 .cards__item__link {
