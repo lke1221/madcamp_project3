@@ -93,8 +93,8 @@ const NewNotice = ({history}) => {
         paddingTop: 80,
       }}
     >
-        <div style={{width: 900}}>
-            <h1>New Notice</h1>
+          <h1>New Notice</h1>
+          <div style={{width: 900, alignItems: 'center', justifyContent:'center'}}>
             <div className='form-wrapper'>
               <input className="title-input" type='text' placeholder='제목' onChange={getValue}/>
               <CKEditor
@@ -120,9 +120,9 @@ const NewNotice = ({history}) => {
               }}
               />
               <input type='file'/>
-            </div>
-            <button className="submit-button" onClick={submitReview}>입력</button>
+            </div>  
         </div>
+        <button className="submit-button" onClick={submitReview}>입력</button>
     </div>
   );
 };
