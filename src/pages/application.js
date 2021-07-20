@@ -18,7 +18,7 @@ const Application = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '90vh'
+        paddingTop: 80,
       }}
     >
       <div style={{width: 900}}>
