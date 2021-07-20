@@ -6,6 +6,7 @@ import { recruitData } from './recruitData';
 import "./application.css";
 import axios from 'axios';
 import {CircleArrow as ScrollUpButton} from "react-scroll-up-button";
+import Footer from "../components/footer";
 
 const Application = () => {
   const [ dataList, setDataList ] = useState([]);
@@ -50,8 +51,10 @@ const Application = () => {
       <p style={{fontSize: 17, lineHeight: 2}}>몰입캠프 참가자로 선정된 후 취소 시에는, 추후 재지원 시 선발 순위가 많이 낮아집니다.</p>
       </div>
       </div>
-      <button style={{marginTop: 30, backgroundColor: 'transparent', borderRadius: 3, width: 200, fontSize: 25,
+      <Footer.Link href="https://docs.google.com/forms/d/e/1FAIpQLSdqwO3HrQhuuZcC3H0ss0m3ffKLMa2I8tq-lxlHPMZ_JPa68w/closedform" target="_blank">
+        <button style={{marginTop: 30, backgroundColor: 'transparent', borderRadius: 3, width: 200, fontSize: 25,
                       height: 50}}>지원하기</button>
+      </Footer.Link>
       <ScrollUpButton />
     </div>
   );
