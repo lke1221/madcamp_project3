@@ -131,25 +131,24 @@ class SignUp extends Component {
     const { formErrors } = this.state;
 
     return (
-      <div className="wrapper"       
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        //height: '90vh'
-      }}>
-        <div className="form-wrapper">
+      <div className="wrapper">
+        <div className="form-wrapper"       
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'column'
+          }}>
+        <div>
           <h1 style={{marginBottom: 50,
                 marginTop: 80,
                 paddingVertical: 8,
                 borderWidth: 4,
-                borderColor: "#20232a",
-                borderRadius: 6,
-                //backgroundColor: "#61dafb",
                 color: "#20232a",
                 textAlign: "center",
                 fontSize: 30,
                 fontWeight: "bold"}}>Create Account</h1>
+        </div>
           <form onSubmit={this.handleSubmit} noValidate>
             <div className="name">
               <div style={{
@@ -322,8 +321,8 @@ class SignUp extends Component {
               </Link>
             </div>
           </form>
+          </div>
         </div>
-      </div>
     );
   }
 }
