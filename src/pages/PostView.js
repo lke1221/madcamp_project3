@@ -3,6 +3,8 @@ import { getPostByNo } from './postData';
 import './Post.css';
 import axios from 'axios';
 import ReactHtmlParser from 'html-react-parser';
+import { Link } from 'react-router-dom'
+import Footer from "../components/footer"
 
 const PostView = ({ history, location, match }) => {
   const [ data, setData ] = useState({});
@@ -88,6 +90,10 @@ const PostView = ({ history, location, match }) => {
                     ReactHtmlParser(data.content+"")
                   }
                 </div>
+              </div>
+              <div className="post-view-row">
+                <label>첨부파일</label>
+                <Footer.Link href={data.url} download><label>{ data.filename }</label></Footer.Link>
               </div>
             </>
           ) : '해당 게시글을 찾을 수 없습니다.'

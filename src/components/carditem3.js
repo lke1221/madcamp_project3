@@ -1,8 +1,11 @@
 import React from "react";
+import "./carditem3.css";
+
 
 function CardItem(props) {
   return (
     <>
+      <div className="please">
       <li className="cards__item">
         <div className="cards__item__link">
           <div className="cards__item__info">
@@ -13,6 +16,7 @@ function CardItem(props) {
           </figure>
         </div>
       </li>
+      </div>
     </>
   );
 }

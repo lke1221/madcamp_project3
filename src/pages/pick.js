@@ -54,7 +54,9 @@ const Pick = ({ children }) => {
                   window.sessionStorage.getItem("position") === "admin"
                     ? openPopup
                     : () => alert("관리자만 글을 작성할 수 있습니다.")
+                  
                 }
+                
               >
                 Add
               </button>
@@ -62,7 +64,10 @@ const Pick = ({ children }) => {
           >
             <PopUpContent />
           </Popup>
-          {dataList ? dataList.map((item, index) => <Card text1={item.title} src={item.url}/>) : ''}
+          <div style={{flexDirection:"column"}}>
+          {dataList ? 
+          dataList.map((item, index) => <Card text1={item.title} src={item.url}/>) : ''}
+          </div>
         </div>
       ) : (
         <></>

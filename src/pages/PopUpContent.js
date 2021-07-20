@@ -5,9 +5,11 @@ import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import axios from "axios";
 import moment from "moment";
 import { storage } from "../firebaseInit";
+import {useHistory} from 'react-router-dom';
 
 
-const NewPick = ({ history }) => {
+
+const NewPick = ({history}) => {
   const [post, setPost] = useState({
     title: "",
     content: "",
@@ -36,7 +38,8 @@ const NewPick = ({ history }) => {
   // }
 
   const submitReview = () => {
-    const image_upload = storage.ref(`images/${image.name}`).put(image);
+    
+    const image_upload = storage.ref(`images/${image.name}`).put(image)
     image_upload.on(
       "state_changed",
       (snapshot) => {
@@ -55,20 +58,20 @@ const NewPick = ({ history }) => {
           .getDownloadURL()
           .then((url) => {
             setUrl(url);
+            // console.log(title);
+            // console.log(url);
+
+            axios.post('http://172.10.18.166:80/uploadpicks', {
+              title: title,
+              url: url,
+              }).then((response)=>{
+                console.log(response);
+              });
+             
           });
       }
-    );
-
-    console.log(title);
-    console.log(url);
-
-    axios.post('http://172.10.18.166:80/uploadpicks', {
-            title: "asdf",
-            url: url,
-        }).then((response)=>{
-            console.log(response);
-        });
-
+    )
+  
   };
 
   return (

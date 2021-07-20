@@ -41,6 +41,8 @@
   vertical-align: middle;
 }
 
+.submit:hover{background: white;}
+
 .ck.ck-editor__editable:not(.ck-editor__nested-editable) {
   min-height: 500px;
   min-width: 800px;

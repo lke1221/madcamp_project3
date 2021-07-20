@@ -44,25 +44,28 @@ const NewNotice = ({history}) => {
           .getDownloadURL()
           .then((url) => {
             setUrl(url);
+
+            console.log(file.name);
+            console.log(url);
+        
+            axios.post('http://172.10.18.166:80/sendNotice', {
+                    title: post.title,
+                    date: moment().format("YYYY-MM-DD HH:mm:ss"),
+                    content: post.content,
+                    hit: 0,
+                    name: window.sessionStorage.getItem('name'),
+                    url: url,
+                    filename: file.name
+                }).then((response)=>{
+                    alert('등록 완료!');
+                    console.log(response.data);
+                    history.push('/notice');
+                });
+
+
           });
       }
     );
-
-    console.log(file.name);
-    console.log(url);
-
-    axios.post('http://172.10.18.166:80/sendNotice', {
-            title: post.title,
-            date: moment().format("YYYY-MM-DD HH:mm:ss"),
-            content: post.content,
-            hit: 0,
-            name: window.sessionStorage.getItem('name'),
-            url: url
-        }).then((response)=>{
-            alert('등록 완료!');
-            console.log(response.data);
-            history.push('/notice');
-        });
   };
 
   const getValue = e => {
