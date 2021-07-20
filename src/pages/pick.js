@@ -6,12 +6,23 @@ import { Link } from "react-router-dom";
 import PopUpContent from "./PopUpContent";
 import ReactDom from "react-dom";
 import Popup from "reactjs-popup";
+import Card from "../components/carditem3";
 import {CircleArrow as ScrollUpButton} from "react-scroll-up-button";
+import Card from "../components/carditem3";
 
 import { firestore } from "../firebaseInit";
 
 const Pick = ({ children }) => {
   const [isOpenPopup, setIsOpenPopup] = useState("false");
+
+  const [ dataList, setDataList ] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://172.10.18.166:80/getpicks').then((response)=>{
+      setDataList(response.data);
+      console.log(response.data);
+  });
+  }, [ ])
 
   const openPopup = () => {
     setIsOpenPopup("true");
@@ -53,6 +64,7 @@ const Pick = ({ children }) => {
           >
             <PopUpContent />
           </Popup>
+          {dataList ? dataList.map((item, index) => <Card text1={item.title} src={item.url}/>) : ''}
         </div>
       ) : (
         <></>

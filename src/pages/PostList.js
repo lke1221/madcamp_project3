@@ -13,8 +13,6 @@ const PostList = props => {
     axios.get('http://172.10.18.166:80/getNotice').then((response)=>{
       setDataList(response.data);
   });
-
-    
   }, [ ])
 
   /*useEffect(() => {
