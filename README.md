@@ -4,6 +4,9 @@
 # Main Page
 navbar를 이용하여 첫 메인 페이지를 구성하였고 스크롤 하여 내리면, 새로운 navbar가 생성됩니다. 스크롤을 통해 생긴 navbar의 각 항목을 클릭하면 각 항목이 시작하는 곳으로 스크롤이 이동하게 됩니다. 우측 하단에는 한 번에 상단으로 올라갈 수 있는 버튼을 만들었습니다. WHY?에서 '몰입캠프 후기보기', 역사에서 'See more..'을 클릭하면 새로운 페이지로 넘어가서 추가적인 정보를 보여줍니다.
 또한 모든 페이지 하단에는 footer가 보입니다. footer에는 몰입캠프 유튜브 채널, 페이스북, 후원사 홈페이지 등으로 연결되는 링크가 있으며, 담당자님과 연락할 수 있는 이메일 정보가 있습니다.
+<img width="1680" alt="KakaoTalk_20210721_012052694" src="https://user-images.githubusercontent.com/63151413/126423891-c5d54150-5b7a-40ec-8739-5f19ae86da67.png">
+<img width="1680" alt="KakaoTalk_20210721_012115407" src="https://user-images.githubusercontent.com/63151413/126423904-e1375280-bda8-43cb-be2c-a41118dd81d3.png">
+<img width="1680" alt="KakaoTalk_20210721_012134692" src="https://user-images.githubusercontent.com/63151413/126423909-43e914b2-7b6e-4741-84cf-a544930c7af3.png">
 
 # Notice
 일반적인 홈페이지들의 게시판과 동일한 기능을 할 수 있도록 만들었습니다. 단, 관리자만 글 작성이 가능합니다. 글 작성에는 ckeditor, 저장에는 Nodejs와 MySql을 이용하였고 파일을 올리는 부분만 firebase를 이용하였습니다.
